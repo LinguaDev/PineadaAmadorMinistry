@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<title>Ministerio Pineda & Amador — Ministerio Infantil</title>
+		<meta name="description" content="Juan Pineda y Ana Amador - Ministerio cristiano enfocado en predicar y ministrar a los niños." />
+		<style>
+			:root{--accent:#2b6cb0;--muted:#666;--bg:#f7fafc;--card:#fff}
+			*{box-sizing:border-box}
+			body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;line-height:1.5;background:var(--bg);color:#111}
+			header{background:linear-gradient(180deg,rgba(43,108,176,.95),#2b6cb0);color:white;padding:2.25rem 1rem}
+			.container{max-width:1000px;margin:0 auto;padding:0 1rem}
+			.brand{display:flex;align-items:center;gap:.75rem}
+			.logo{width:56px;height:56px;border-radius:8px;background:rgba(255,255,255,.12);display:flex;align-items:center;justify-content:center;font-weight:700}
+			h1{margin:.25rem 0;font-size:1.5rem}
+			p.lead{margin:0;color:rgba(255,255,255,.9)}
+
+			main{padding:2rem 0}
+			.grid{display:grid;grid-template-columns:1fr;gap:1.25rem}
+			@media(min-width:760px){.grid{grid-template-columns:2fr 1fr}}
+
+			.card{background:var(--card);padding:1rem;border-radius:10px;box-shadow:0 6px 20px rgba(17,17,17,.06)}
+			.hero{display:flex;flex-direction:column;gap:1rem}
+			.hero .intro{display:flex;gap:1rem;align-items:center}
+			.hero img{width:160px;height:110px;object-fit:cover;border-radius:8px}
+
+			h2{margin:.25rem 0;color:var(--accent)}
+			.muted{color:var(--muted)}
+
+			ul.bullets{Padding-left:1.15rem;margin:.5rem 0}
+			.cta{display:inline-block;background:var(--accent);color:#fff;padding:.6rem .9rem;border-radius:8px;text-decoration:none}
+
+			footer{padding:1.25rem 0;color:var(--muted);font-size:.9rem}
+
+			/* formulario */
+			form label{display:block;font-weight:600;margin:.45rem 0 .25rem}
+			input[type=text],input[type=email],textarea{width:100%;padding:.6rem;border:1px solid #e6e6e6;border-radius:8px}
+			textarea{min-height:100px}
+			.btn{background:var(--accent);color:#fff;border:none;padding:.6rem .9rem;border-radius:8px;cursor:pointer}
+
+			.schedule{display:flex;flex-direction:column;gap:.5rem}
+			.schedule time{font-weight:700}
+
+			.small{font-size:.95rem}
+		</style>
+	</head>
+	<body>
+		<header>
+			<div class="container">
+				<div class="brand">
+					<div class="logo" aria-hidden="true">JP</div>
+					<div>
+						<h1>Ministerio Pineda & Amador</h1>
+						<p class="lead">Juan Pineda y Ana Amador — Predicando el Evangelio y ministrando a los niños con amor.</p>
+					</div>
+				</div>
+			</div>
+		</header>
+
+		<main class="container">
+			<div class="grid">
+				<section class="card hero" aria-labelledby="mision">
+					<div class="intro">
+						<img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=800&auto=format&fit=crop&cs=tinysrgb" alt="Niños en ministerio" />
+						<div>
+							<h2 id="mision">Nuestra Misión</h2>
+							<p class="small">Somos un ministerio cristiano dedicado a compartir el amor de Jesucristo con las nuevas generaciones. A través de enseñanza bíblica, actividades creativas y acompañamiento espiritual, buscamos que cada niño conozca y experimente la fe.</p>
+						</div>
+					</div>
+
+					<div>
+						<h3 class="muted">Qué hacemos</h3>
+						<ul class="bullets">
+							<li>Clases bíblicas semanales para niños</li>
+							<li>Campamentos y eventos familiares</li>
+							<li>Capacitación para líderes y voluntarios</li>
+							<li>Acompañamiento pastoral y oración</li>
+						</ul>
+					</div>
+
+					<div>
+						<h3 class="muted">Testimonio</h3>
+						<blockquote class="small">"Hemos visto a niños acercarse a Dios, comprender Su amor y transformarse en pequeños líderes en la iglesia." — Familia beneficiada</blockquote>
+					</div>
+
+				</section>
+
+				<aside class="card" aria-labelledby="info">
+					<h2 id="info">Próximos eventos</h2>
+					<div class="schedule small">
+						<div>
+							<time>Domingo, 10:00 AM</time>
+							<div class="muted">Clase infantil / Servicio familiar — Iglesia Central</div>
+						</div>
+						<div>
+							<time>Sábado (mensual) — 9:00 AM</time>
+							<div class="muted">Taller de voluntarios y formación</div>
+						</div>
+						<div>
+							<time>Julio (fecha por confirmar)</time>
+							<div class="muted">Campamento de verano — Registro abierto</div>
+						</div>
+					</div>
+
+					<hr />
+
+					<h3 class="muted">Horario de reuniones</h3>
+					<p class="small">Reuniones semanales, actividades especiales y apoyo para familias. Contacta para recibir el calendario completo.</p>
+
+					<h3 class="muted">Contacto rápido</h3>
+					<p class="small">Tel: <a href="tel:+1234567890">+1 (234) 567-890</a><br />Email: <a href="mailto:contacto@ministerioejemplo.org">contacto@ministerioejemplo.org</a></p>
+
+					<p><a class="cta" href="#contact">Escríbenos</a></p>
+				</aside>
+			</div>
+
+			<section class="card" id="contact" aria-labelledby="contacto">
+				<h2 id="contacto">Contáctanos / Registro</h2>
+				<p class="muted">Rellena el formulario para preguntar sobre actividades, voluntariado o para inscribir a un niño.</p>
+
+				<form action="mailto:contacto@ministerioejemplo.org" method="post" enctype="text/plain" aria-label="Formulario de contacto">
+					<label for="nombre">Nombre</label>
+					<input id="nombre" name="nombre" type="text" required placeholder="Tu nombre completo" />
+
+					<label for="email">Correo electrónico</label>
+					<input id="email" name="email" type="email" required placeholder="tu@correo.com" />
+
+					<label for="mensaje">Mensaje / Consulta</label>
+					<textarea id="mensaje" name="mensaje" placeholder="¿En qué podemos ayudarte?" required></textarea>
+
+					<p style="margin:.5rem 0" class="muted">Si prefieres, envía un correo a <a href="mailto:contacto@ministerioejemplo.org">contacto@ministerioejemplo.org</a></p>
+
+					<button type="submit" class="btn">Enviar mensaje</button>
+				</form>
+			</section>
+
+		</main>
+
+		<footer>
+			<div class="container">
+				<div class="small">© <span id="year"></span> Ministerio Pineda & Amador. Todos los derechos reservados.</div>
+			</div>
+		</footer>
+
+		<script>
+			// Añadir año actual al pie
+			document.getElementById('year').textContent = new Date().getFullYear();
+		</script>
+	</body>
+</html>
