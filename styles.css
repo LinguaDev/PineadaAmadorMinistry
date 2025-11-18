@@ -1,12 +1,18 @@
-/* 1. Global Reset and Variables */
+/* 1. Global Setup, Variables, and Typography */
 :root {
-    --primary-color: #0077b6; /* A clean blue for ministry/trust */
-    --secondary-color: #00b4d8; /* A lighter blue accent */
-    --text-dark: #333333;
-    --text-light: #f4f4f4;
+    /* Color Palette - Focus on light backgrounds and subtle blue accents */
+    --primary-color: #004a77;    /* Dark Navy/Blue - Professional look */
+    --secondary-color: #0077b6;  /* Medium Blue - Accent and links */
+    --accent-color: #ffb703;     /* Warm Yellow/Gold - High-impact CTAs */
+    --text-dark: #333333;        /* Dark text for maximum readability */
+    --text-light: #f8f8f8;       /* Very light gray for inverse sections */
     --background-light: #ffffff;
-    --background-gray: #f9f9f9;
-    --font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --background-gray: #f9f9f9;  /* Soft light gray background for contrast */
+    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Very light, modern shadow */
+    --border-radius: 6px;
+
+    /* Typography */
+    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
 }
 
 * {
@@ -17,346 +23,443 @@
 
 body {
     font-family: var(--font-family);
-    line-height: 1.6;
+    line-height: 1.65; /* Excellent line-height for body text */
     color: var(--text-dark);
     background-color: var(--background-light);
+    font-size: 16px;
 }
 
+/* Container limits width to prevent stretching on huge monitors */
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1000px; /* Optimal reading width */
     margin: 0 auto;
 }
 
 section {
-    padding: 60px 0;
+    padding: 100px 0; /* Generous vertical spacing */
+    overflow: hidden; /* Prevents layout shifts from transitions */
 }
 
 /* Headings */
 h1 {
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     color: var(--primary-color);
+    font-weight: 800;
 }
 h2 {
     font-size: 2rem;
-    margin-bottom: 20px;
+    margin-bottom: 5px;
     color: var(--primary-color);
     text-align: center;
+    font-weight: 700;
 }
 h3 {
     font-size: 1.5rem;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
     color: var(--text-dark);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 5px;
+    font-weight: 600; 
+}
+.section-subtitle {
+    display: block;
+    text-align: center;
+    color: #888;
+    margin-bottom: 40px;
+    font-style: italic;
+    font-weight: 300;
+}
+strong {
+    font-weight: 700;
 }
 
-/* Links */
+/* 2. Links and Buttons */
 a {
-    color: var(--primary-color);
+    color: var(--secondary-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 a:hover {
-    color: var(--secondary-color);
+    color: var(--primary-color);
+    text-decoration: underline;
 }
 
-/* Call to Action Buttons */
 .cta-button {
     display: inline-block;
     background: var(--primary-color);
     color: var(--text-light) !important;
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
+    padding: 10px 22px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    transition: background-color 0.3s ease, transform 0.2s ease;
     text-transform: uppercase;
+    font-size: 0.9rem;
+    border: 2px solid var(--primary-color);
 }
 .cta-button:hover {
     background: var(--secondary-color);
+    border-color: var(--secondary-color);
+    transform: translateY(-1px);
 }
 .cta-button.large {
-    padding: 15px 30px;
+    padding: 15px 35px;
     font-size: 1.1rem;
-    margin-top: 20px;
+    margin-top: 30px;
+}
+.donate-btn {
+    background: var(--accent-color); 
+    color: var(--text-dark) !important;
+    padding: 16px 40px;
+    border-radius: var(--border-radius);
+    font-size: 1.2rem;
+    font-weight: 700;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    display: inline-block; 
+    margin-top: 20px; 
+    margin-bottom: 20px;
+}
+.donate-btn:hover {
+    background: #ffd366;
+    transform: translateY(-2px);
 }
 
-/* 2. Header and Navigation (Desktop) */
+
+/* 3. Header and Navigation */
 header {
     background: var(--background-light);
-    color: var(--text-dark);
-    padding: 15px 0;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
-
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+/* Adjust logo/title size within header */
+header h1 {
+    font-size: 1.6rem;
+    line-height: 1.2;
 }
 
 /* Desktop Nav */
 .desktop-nav ul {
     list-style: none;
     display: flex;
+    align-items: center;
 }
-
 .desktop-nav ul li {
-    margin-left: 25px;
+    margin-left: 30px;
 }
-
 .desktop-nav ul li a {
     color: var(--text-dark);
-    padding: 5px 0;
     font-weight: 500;
-    display: block;
+    padding: 5px 0;
+    transition: color 0.3s;
 }
 .desktop-nav ul li a:hover {
-    border-bottom: 2px solid var(--secondary-color);
+    color: var(--secondary-color);
+    text-decoration: none;
 }
 
-/* 3. Mobile Menu (Hamburger) */
+/* Mobile Menu (Hamburger Logic) */
 #menu-toggle {
-    display: none; /* Hidden by default on desktop */
+    display: none;
     background: none;
     border: none;
     cursor: pointer;
     padding: 10px;
     z-index: 1010;
 }
-
 #menu-toggle .bar {
-    width: 25px;
+    display: block;
+    width: 28px;
     height: 3px;
-    background-color: var(--text-dark);
-    margin: 5px 0;
+    background-color: var(--primary-color);
+    margin: 6px 0;
     transition: all 0.3s ease;
+    border-radius: 1px;
+}
+/* 'X' Animation */
+#menu-toggle.is-active .bar:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+#menu-toggle.is-active .bar:nth-child(2) {
+    opacity: 0; 
+}
+#menu-toggle.is-active .bar:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 .mobile-nav {
     position: fixed;
     top: 0;
     right: 0;
-    width: 70%; /* Takes 70% of screen width */
-    height: 100%;
+    width: 80%;
+    max-width: 300px; /* Restrict max width on mobile menu */
+    height: 100vh;
     background: var(--primary-color);
-    padding-top: 80px;
-    box-shadow: -4px 0 8px rgba(0, 0, 0, 0.2);
-    transform: translateX(100%); /* Initially slide out of view */
+    padding-top: 100px;
+    transform: translateX(100%); 
     transition: transform 0.4s ease-in-out;
     z-index: 999;
 }
-
 .mobile-nav.open {
-    transform: translateX(0); /* Slide into view */
+    transform: translateX(0);
 }
-
 .mobile-nav ul {
     list-style: none;
     padding: 0;
 }
-
 .mobile-nav ul li a {
     color: var(--text-light);
     display: block;
-    padding: 15px 25px;
+    padding: 15px 20px;
+    font-size: 1.05rem;
+    transition: background 0.3s ease;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 1.1rem;
 }
 .mobile-nav ul li a:hover {
     background: var(--secondary-color);
 }
 
 
-/* 4. Section Styles */
+/* 4. Section Styles and Cards */
 
 /* Hero/Thanks Section */
 .hero {
-    background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('') no-repeat center center/cover;
-    text-align: center;
-    padding: 80px 0;
-    border-bottom: 5px solid var(--secondary-color);
-}
-.hero .lead {
-    font-size: 1.3rem;
-    max-width: 800px;
-    margin: 20px auto 30px;
-    font-weight: 500;
-}
-
-
-/* Reports & Videos Section */
-.reports-videos {
     background-color: var(--background-gray);
     text-align: center;
+    padding: 120px 0 100px;
+    border-bottom: 3px solid var(--secondary-color);
+}
+.hero h2 {
+    font-size: 2.8rem;
+}
+.hero .lead {
+    font-size: 1.25rem;
+    max-width: 800px; 
+    margin: 20px auto 40px;
+    font-weight: 300;
+    color: var(--text-dark);
+}
+
+/* 4.1 Reports & Videos Section */
+.reports-videos {
+    background-color: var(--background-light);
 }
 .report-card {
     background: var(--background-light);
     padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
-    margin-bottom: 30px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    border-left: 4px solid var(--secondary-color); 
+    margin-bottom: 50px; 
+    transition: all 0.3s ease;
+}
+.report-card:hover {
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+.report-card h4 {
+    color: var(--primary-color);
+    font-size: 1.25rem;
+    margin-bottom: 10px;
 }
 .video-gallery {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    padding-top: 20px;
+    text-align: center;
 }
-.video-placeholder iframe {
+.video-placeholder {
+    padding: 0;
+}
+.video-placeholder video {
     width: 100%;
-    max-width: 600px;
-    height: 350px; /* Adjust height as needed */
-    margin: 20px 0 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-.video-gallery h4 {
-    margin-bottom: 10px;
-    border: none;
+    max-width: 800px; 
+    height: auto;
+    display: block;
+    margin: 15px auto 5px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* About Us Section */
+/* 4.2 About Us Section */
+.about {
+    background: var(--background-gray);
+    text-align: center;
+}
 .about .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 30px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px; 
 }
 .profile-card {
     background: var(--background-light);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    text-align: center;
-    width: 100%;
-    max-width: 450px;
+    padding: 35px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    border-bottom: 4px solid var(--accent-color);
+}
+.profile-card p {
+    text-align: left;
+    margin-top: 15px;
+}
+.profile-card h4 {
+    color: var(--secondary-color);
 }
 .profile-img {
-    width: 150px;
-    height: 150px;
+    width: 130px;
+    height: 130px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 15px;
-    border: 4px solid var(--primary-color);
+    border: 3px solid var(--primary-color);
 }
 
-/* Resources Section */
+/* 4.3 Resources Section */
 .resources {
-    background-color: var(--background-gray);
+    background-color: var(--background-light);
 }
 .resources .container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 .resource-item {
-    background: var(--background-light);
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+    background: var(--background-gray);
+    padding: 30px;
+    border-radius: var(--border-radius);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+.resource-item:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+.resource-item h4 {
+    color: var(--primary-color);
+    margin-bottom: 8px;
+    font-size: 1.3rem;
+}
+.resource-item p {
+    margin-bottom: 15px;
 }
 .resource-link {
-    display: inline-block;
-    margin-top: 10px;
-    font-weight: bold;
+    font-weight: 600;
 }
 
-/* Donation CTA Section */
+/* 4.4 Donation CTA Section */
 .cta-donation {
     background: var(--primary-color);
     color: var(--text-light);
     text-align: center;
-    padding: 50px 0;
+    padding: 80px 0;
 }
 .cta-donation h3, .cta-donation p {
     color: var(--text-light);
 }
-.donate-btn {
-    display: inline-block;
-    background: #ffcc00; /* Bright yellow for visibility */
-    color: var(--text-dark) !important;
-    padding: 15px 40px;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    font-weight: bold;
-    margin-top: 20px;
-    text-transform: uppercase;
-}
-.donate-btn:hover {
-    background: #ffdb4d;
-}
 .small-text {
-    font-size: 0.9rem;
-    margin-top: 15px;
+    font-size: 0.95rem;
+    margin-top: 25px;
     opacity: 0.8;
 }
+
 
 /* 5. Footer and Contact */
 footer {
     background: var(--text-dark);
     color: var(--text-light);
     text-align: center;
-    padding: 30px 0;
+    padding: 35px 0;
+    font-size: 0.95rem;
 }
 footer h3 {
     color: var(--text-light);
-    border-bottom: 2px solid var(--secondary-color);
-    padding-bottom: 5px;
-    display: inline-block;
     margin-bottom: 15px;
-}
-footer p {
-    margin: 5px 0;
 }
 footer a {
     color: var(--secondary-color);
 }
+footer p {
+    margin: 6px 0;
+}
 .address-detail {
-    font-style: italic;
-    font-size: 0.9rem;
+    font-style: normal;
     margin-bottom: 15px;
+    opacity: 0.9;
 }
 .copy {
-    margin-top: 20px !important;
-    font-size: 0.8rem;
+    margin-top: 20px;
+    font-size: 0.85rem;
     opacity: 0.7;
 }
 
+
 /* 6. Media Queries for Responsiveness */
-@media (max-width: 900px) {
-    /* Hide desktop navigation and show hamburger menu on smaller screens */
+
+/* Ensure mobile menu is hidden on large screens */
+@media (min-width: 951px) { 
+    .mobile-nav {
+        display: none !important; 
+    }
+}
+
+@media (max-width: 950px) { 
+    /* Show mobile hamburger, hide desktop nav */
     .desktop-nav {
         display: none;
     }
     #menu-toggle {
         display: block;
     }
-    header .container {
-        justify-content: space-between;
+    .mobile-nav {
+        display: block;
     }
 }
 
 @media (max-width: 600px) {
-    /* Adjustments for smaller mobile screens */
+    /* Mobile Adjustments */
+    section {
+        padding: 60px 0;
+    }
     h1 {
-        font-size: 1.8rem;
+        font-size: 2rem;
     }
     h2 {
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
     .hero {
-        padding: 50px 0;
+        padding: 80px 0;
     }
     .hero .lead {
-        font-size: 1.1rem;
+        font-size: 1.15rem;
     }
-    .profile-card {
-        margin-bottom: 20px;
+    .profile-card, .resource-item, .report-card {
+        padding: 25px;
     }
-    .video-placeholder iframe {
-        height: 250px; /* Make videos smaller on phones */
+    .about .container {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    .donate-btn {
+        padding: 14px 30px;
+        font-size: 1.05rem;
+    }
+}
+
+/* Nuevo CSS para la estructura de dos columnas */
+.reports-grid {
+    display: grid;
+    /* En pantallas grandes, divide el espacio en dos columnas iguales */
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    align-items: start; /* Alinea los elementos en la parte superior */
+}
+
+/* Media Query para apilar elementos en pantallas pequeñas */
+@media (max-width: 768px) {
+    .reports-grid {
+        grid-template-columns: 1fr; /* Una sola columna en móvil */
     }
 }
