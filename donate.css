@@ -1,0 +1,238 @@
+/* 1. Global Reset, Variables, and Typography */
+:root {
+    --primary-color: #0077b6; /* Clean Blue */
+    --secondary-color: #00b4d8; /* Lighter Blue Accent */
+    --text-dark: #333333; /* Dark text for light backgrounds (Main readability) */
+    --text-light: #ffffff; /* WHITE text for dark backgrounds (Guaranteed readability) */
+    --background-light: #ffffff;
+    --background-gray: #f9f9f9;
+    --border-light: #e0e0e0;
+    --shadow-subtle: 0 4px 8px rgba(0, 0, 0, 0.05);
+    --font-family: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-family);
+    line-height: 1.6;
+    color: var(--text-dark); /* Default text color is dark */
+    background-color: var(--background-light);
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+section {
+    padding: 80px 0; 
+}
+
+/* Headings */
+h1 {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    font-weight: 700;
+}
+h2 {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    color: var(--primary-color);
+    text-align: center;
+    font-weight: 600;
+}
+h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+    color: var(--text-dark);
+    padding-bottom: 5px; 
+}
+
+/* Links and CTA Buttons */
+a {
+    color: var(--primary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+a:hover {
+    color: var(--secondary-color);
+}
+
+.cta-button {
+    display: inline-block;
+    background: var(--primary-color);
+    color: var(--text-light) !important; /* FIXED: Ensure CTA text is white */
+    padding: 10px 20px;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+}
+.cta-button:hover {
+    background: var(--secondary-color);
+}
+.donate-btn {
+    display: inline-block;
+    background: #ffcc00; 
+    color: var(--text-dark) !important; 
+    padding: 15px 40px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin-top: 20px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease;
+}
+.donate-btn:hover {
+    background: #ffdb4d;
+}
+
+
+/* 2. Header and Footer (Basic Styling) */
+header {
+    background: var(--background-light);
+    padding: 15px 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    z-index: 1000;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+footer {
+    background: var(--text-dark); /* Dark background */
+    color: var(--text-light); /* FIXED: Ensure footer text is white */
+    text-align: center;
+    padding: 30px 0;
+}
+footer h3 {
+    color: var(--text-light); /* FIXED: Ensure footer headings are white */
+    margin-bottom: 15px;
+}
+footer p {
+    margin: 8px 0;
+}
+.address-detail {
+    font-style: italic;
+    font-size: 0.9rem;
+    margin-bottom: 15px;
+    opacity: 0.8;
+}
+
+
+/* 3. Donation Page Specific Styles (Card-based & Minimalistic) */
+
+.cta-donation {
+    background: var(--primary-color); /* Primary color background */
+    color: var(--text-light); /* FIXED: All text in this section should be white */
+    text-align: center;
+    padding: 70px 0;
+}
+/* Ensure ALL nested elements inherit or are set to white on the blue background */
+.cta-donation h2, .cta-donation h3, .cta-donation p, .cta-donation .lead {
+    color: var(--text-light); 
+}
+
+#donation-page .lead {
+    font-size: 1.2rem;
+    font-weight: 400;
+    max-width: 900px;
+    margin: 20px auto 40px;
+}
+
+.donation-method-card {
+    background: var(--background-light); /* White card background */
+    color: var(--text-dark); /* Dark text on white card */
+    padding: 35px;
+    border-radius: 10px;
+    margin: 30px auto;
+    max-width: 650px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+    text-align: left;
+}
+/* Ensure text inside the cards is dark */
+.donation-method-card h3, .donation-method-card p, .donation-method-card strong {
+    color: var(--text-dark);
+}
+
+.donation-method-card h3 {
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid;
+}
+
+/* Western Union Styling */
+.western-union h3 {
+    border-color: #ffcc00; 
+}
+.western-union .bold-info {
+    color: #ff8800; 
+    font-weight: 600;
+}
+
+/* PayPal Styling */
+.paypal h3 {
+    border-color: var(--secondary-color);
+}
+.paypal-btn {
+    background: #00457C !important;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    font-size: 1rem;
+    color: var(--text-light) !important; /* FIXED: Ensure PayPal button text is white */
+}
+.paypal-btn:hover {
+    background: #0077b6 !important;
+}
+
+.method-explanation {
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.info-block {
+    background: var(--background-gray);
+    padding: 15px;
+    border-radius: 5px;
+    margin-top: 15px;
+}
+.info-block p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+}
+
+
+/* 4. Media Queries */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.8rem;
+    }
+    h2 {
+        font-size: 1.6rem;
+    }
+    section {
+        padding: 50px 0;
+    }
+    .donation-method-card {
+        padding: 25px 15px;
+    }
+    #donation-page .lead {
+        font-size: 1.1rem;
+    }
+    .donate-btn {
+        padding: 12px 30px;
+        font-size: 1.1rem;
+    }
+}

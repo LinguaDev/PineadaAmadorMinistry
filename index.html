@@ -3,123 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pineda Amador Christian Ministry - Home</title>
+    <title>Pineda Amador Family Ministry | Updates and Donations</title>
     <link rel="stylesheet" href="styles.css">
-</head>
+    <script src="scripts.js" defer></script>
+    </head>
 <body>
 
-    <header>
-        <div class="header-top">
-            <div class="logo">
-                <h1>Pineda Amador Ministry</h1>
-            </div>
+    <header id="home">
+        <div class="container">
+            <h1>Pineda Amador Family Ministry</h1>
             
-            <div class="language-selector">
-                <label for="language-select" class="sr-only">Select Language</label>
-                <select id="language-select">
-                    <option value="en" selected>English</option>
-                    <option value="es">Español</option>
-                </select>
-            </div>
-        </div>
-        
-        <nav id="main-nav">
-            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+            <button id="menu-toggle" aria-label="Toggle navigation">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
             </button>
 
-            <ul class="nav-links">
-                <li><a href="#home" data-i18n="nav-home">Home</a></li>
-                <li><a href="#about" data-i18n="nav-about">About Us</a></li>
-                <li><a href="#ministries" data-i18n="nav-ministries">Ministries</a></li>
-                <li><a href="#events" data-i18n="nav-events">Events</a></li>
-                <li><a href="#contact" data-i18n="nav-contact">Contact</a></li>
-                <li><a href="donate.html" class="button-link" data-i18n="nav-give">Give Online</a></li> 
-            </ul>
-        </nav>
+            <nav id="desktop-nav" class="desktop-nav">
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#thanks">Acknowledgements</a></li>
+                    <li><a href="#latest-reports">Reports</a></li>
+                    <li><a href="#about-us">About Us</a></li>
+                    <li><a href="#resources">Resources</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="donate.html" class="cta-button">Donate Today!</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
 
-    <section id="home" class="hero">
-        <div class="hero-content">
-            <h2 data-i18n="hero-heading">Welcome to Pineda Amador Christian Ministry</h2>
-            <p data-i18n="hero-text">A place where faith is nurtured, hope is restored, and love is shared with the community.</p>
-            <a href="#events" class="cta-button" data-i18n="hero-cta">Join Our Next Service</a>
-        </div>
-    </section>
+    <nav id="mobile-nav" class="mobile-nav hidden">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#thanks">Acknowledgements</a></li>
+            <li><a href="#latest-reports">Reports</a></li>
+            <li><a href="#about-us">About Us</a></li>
+            <li><a href="#resources">Resources</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="donate.css" class="cta-button">Donate Today!</a></li>
+        </ul>
+    </nav>
 
-    <section id="about" class="about-us">
-        <h3 data-i18n="about-mission-h">Our Mission</h3>
-        <p data-i18n="about-mission-p">We are dedicated to spreading the Gospel, serving the needy, and fostering a deep, personal relationship with Christ through discipleship and community outreach.</p>
-        <div class="core-values">
-            <h4 data-i18n="about-values-h">Core Values</h4>
-            <ul>
-                <li data-i18n="value-faith">**Faith:** Believing in God's promises.</li>
-                <li data-i18n="value-love">**Love:** Serving others with compassion.</li>
-                <li data-i18n="value-service">**Service:** Actively engaging the community.</li>
-            </ul>
-        </div>
-    </section>
-
-    <section id="ministries" class="ministries">
-        <h3 data-i18n="ministries-h">Explore Our Ministries</h3>
-        <div class="ministry-grid">
-            <article class="ministry-item">
-                <h4 data-i18n="ministry-youth-h">Youth Ministry</h4>
-                <p data-i18n="ministry-youth-p">Equipping the next generation to live bold, faith-filled lives.</p>
-                <a href="youth.html" data-i18n="link-learn">Learn More</a>
-            </article>
-            <article class="ministry-item">
-                <h4 data-i18n="ministry-outreach-h">Outreach Ministry</h4>
-                <p data-i18n="ministry-outreach-p">Bringing hope and practical help to our local and global neighbors.</p>
-                <a href="outreach.html" data-i18n="link-learn">Learn More</a>
-            </article>
-            <article class="ministry-item">
-                <h4 data-i18n="ministry-worship-h">Worship Team</h4>
-                <p data-i18n="ministry-worship-p">Leading the congregation in Spirit-filled, heartfelt worship.</p>
-                <a href="worship.html" data-i18n="link-learn">Learn More</a>
-            </article>
-        </div>
-    </section>
-
-    <section id="events" class="events">
-        <h3 data-i18n="events-h">Upcoming Events & Sermons</h3>
-        <div class="event-list">
-            <div class="event-item">
-                <h4 data-i18n="event-sunday-h">Sunday Worship Service</h4>
-                <p class="date-time" data-i18n="event-sunday-time">Sunday, 10:00 AM</p>
-                <p data-i18n="event-sunday-p">Join us for a time of fellowship, worship, and an inspiring message.</p>
+    <main>
+        <section id="thanks" class="hero">
+            <div class="container">
+                <h2>🙏 A Special Thank You</h2>
+                <p class="lead">
+                    With deep gratitude, we extend our most sincere thanks to the <strong>Green Lawn Church of Christ</strong>.
+                    You have been the first and only pillar of financial support for the Pineda Amador Family Ministry. Your faith and generosity make our work possible.
+                </p>
+                <p>
+                    <a href="https://greenlawn.org/" target="_blank" rel="noopener noreferrer">Visit the Green Lawn Church of Christ website</a>
+                </p>
+                <a href="donate.html" class="cta-button large">Support Our Ministry</a>
             </div>
-            <div class="event-item">
-                <h4 data-i18n="event-midweek-h">Mid-Week Prayer Meeting</h4>
-                <p class="date-time" data-i18n="event-midweek-time">Wednesday, 7:00 PM</p>
-                <p data-i18n="event-midweek-p">A focused time of intercessory and corporate prayer.</p>
-            </div>
-        </div>
-        <a href="calendar.html" class="button-link" data-i18n="events-calendar-link">View Full Calendar</a>
-    </section>
-    
-    <section id="contact" class="contact">
-        <h3 data-i18n="contact-h">Get in Touch</h3>
-        <address>
-            <span data-i18n="contact-address">Pineda Amador Christian Ministry</span><br>
-            [Ministry Street Address]<br>
-            [City, State, Zip Code]<br>
-            Phone: [Your Phone Number]<br>
-            Email: <a href="mailto:info@yourministry.org">info@yourministry.org</a>
-        </address>
-    </section>
+        </section>
 
-    <footer>
-        <p data-i18n="contact-rights">&copy; 2025 Pineda Amador Christian Ministry. All rights reserved.</p>
-        <div class="social-links">
-            <a href="#">Facebook</a> |
-            <a href="#">Instagram</a> |
-            <a href="#">YouTube</a>
+        <section id="latest-reports" class="reports-videos">
+            <div class="container">
+                <h3>🗓️ Monthly Report and Featured Videos</h3>
+                
+                <div class="report-card">
+                    <h4>Activity Report: November 2025</h4>
+                    <p>
+Thanks to the generous donations received this month, we were able to purchase essential materials such as colored pencils, scissors, paper, and other supplies to begin working on crafts with the children. These resources are helping us create a more dynamic and engaging learning environment, enriching their spiritual and educational experience.
+                    </p>
+                    <a href="November2025.pdf" class="read-more">View Full Report (PDF)</a>
+                </div>
+
+                <div class="video-gallery">
+                    <h4>🎥 Recent Ministry Videos</h4>
+                    <div class="video-placeholder">
+                        <iframe width="560" height="315" src="https://youtu.be/rYyFz2g6wJ4" title="November2025" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <p>November 2025</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about-us" class="about">
+            <div class="container">
+                <h3>👥 About the Pineda Amador Family Ministry</h3>
+                
+                <div class="profile-card">
+                    <h4>Juan Pineda</h4>
+                    <img src="JUAN.png" alt="Photo of Brother Pineda" class="profile-img">
+                    <p>
+                        I was baptized into Christ in 2013 after listening for some time to a radio program produced by the Church of Christ. That same program would later become part of my ministry, as I eventually became its director.
+Driven by a desire to grow in the Word, I went on to study at the Biblical Institute of Nicaragua. During one of our mission trips, I met my wife, Ana Amador. We later married and have now been serving the Lord together for ten years.
+God has blessed us with two wonderful children, Jesús and Juan. I am currently pursuing a Bachelor's degree in Theology at the Sunset International Bible Institute, preparing myself to serve more effectively in the Kingdom of God
+                    </p>
+                </div>
+
+                <div class="profile-card">
+                    <h4>Ana Amador</h4>
+                    <img src="ANA.jpeg" alt="Photo of Sister Amador" class="profile-img">
+                    <p>
+                        I was born and raised in the Church of Christ, the daughter of Ezequiel Amador—a respected preacher in Nicaragua and longtime minister of one of the country’s oldest congregations, the Church of Christ in Sutiava.
+From a young age, I developed a deep love for teaching children. I began serving in the children's ministry when I was just 12 years old, and I’ve remained committed to that calling ever since.
+My vision is to expand and strengthen the ministry of teaching children, helping them grow in faith, love, and understanding of God’s Word. I believe that planting the seed of the gospel early in life builds a strong foundation for lifelong discipleship.
+
+                    </p>
+                </div>
+                
+            </div>
+        </section>
+
+        <section id="recursos" class="resources">
+            <div class="container">
+                <h3>📚 Teaching and Edification Resources</h3>
+                
+                <div class="resource-item">
+                    <h4>Recent Sermons</h4>
+                    <p>Access sermons, Bible studies, and conferences.</p>
+                    <a href="#" class="resource-link">View Collection</a>
+                </div>
+
+                <div class="resource-item">
+                    <h4>Children's Ministry Material</h4>
+                    <p>Lessons, activities, and guides for parents and children's teachers (Ministry of [Wife's Name]).</p>
+                    <a href="#" class="resource-link">Download Resources</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="donations" class="cta-donation">
+            <div class="container">
+                <h3>🕊️ Join the Mission</h3>
+                <p>
+                    Your support is vital for the Pineda Amador Family to continue serving and expanding the Kingdom. 
+                    Every donation allows us to focus on preaching and children's ministry.
+                </p>
+                <a href="donate.html" target="_blank" rel="noopener noreferrer" class="donate-btn">
+                    Make a Donation
+                </a>
+                <p class="small-text">
+                    We thank you in advance for your generosity in Christ.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact">
+        <div class="container">
+            <h3>Contact Us</h3>
+            <p><strong>Email:</strong> JUANCANALES5019@GMAIL.COM</p>
+            <p><strong>Phone:</strong> +505 5751 4440</p>
+            <p><strong>Location:</strong> León, Nicaragua</p>
+            <p class="address-detail">
+                Del Restaurante Los Pescaditos, 1 Cuadra al Oeste.
+            </p>
+            <p class="copy">Pineda Amador Family Ministry &copy; 2025 | Developed with gratitude and faith.</p>
         </div>
     </footer>
-    
-    <script src="script.js"></script>
 </body>
 </html>
