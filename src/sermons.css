@@ -1,0 +1,395 @@
+/*
+ * sermons.css
+ * Dedicated styles for the Brother Juan Pineda Sermons Landing Page (sermons.html)
+*/
+:root {
+    --primary-color: #006400;     /* Deep Forest Green */
+    --secondary-color: #6AA84F;   /* Vibrant Lime Green/Accent */
+    --accent-color: #66CCCC;      /* Soft Teal/Mint */
+    --background-light: #F8F9FA;  /* Light gray background */
+    --background-card: #FFFFFF;   /* White card background */
+    --text-dark: #333333;
+    --text-light: #FFFFFF;
+    --font-serif: 'Georgia', serif; /* Serif for readability of content */
+    --font-sans: 'Helvetica Neue', Arial, sans-serif; /* Sans-serif for titles/navigation */
+    --shadow-subtle: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-medium: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: var(--font-serif);
+    line-height: 1.6; 
+    color: var(--text-dark);
+    background-color: var(--background-light);
+    padding-top: 100px; /* Space for the sticky header/nav */
+}
+
+h1, h2, h3, h4 {
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    color: var(--primary-color);
+    line-height: 1.2;
+    font-family: var(--font-sans); /* Use sans-serif for headings */
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    color: var(--secondary-color);
+}
+
+section {
+    padding: 40px 5%;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 40px 5%;
+    max-width: 1200px;
+}
+
+/* --- 2. Header and Navigation (Sticky) --- */
+
+header.sermon-header {
+    background-color: var(--primary-color); 
+    color: var(--text-light);
+    box-shadow: var(--shadow-medium);
+    position: fixed; /* Make the whole header fixed */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+header.sermon-header .header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header.sermon-header .logo h1 {
+    color: var(--text-light);
+    font-size: 1.6em;
+    margin: 0;
+}
+
+/* Main Nav Links */
+.main-nav-links a {
+    color: var(--text-light);
+    margin-left: 20px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: 500;
+}
+
+.main-nav-links a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: var(--accent-color);
+}
+
+/* Category Jump Bar (NEW) */
+.category-jump-bar {
+    background-color: var(--secondary-color);
+    padding: 10px 5%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.category-jump-bar .jump-link {
+    color: var(--text-dark);
+    margin: 0 15px;
+    padding: 5px 10px;
+    font-size: 0.9em;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.category-jump-bar .jump-link:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+    text-decoration: underline;
+}
+
+/* --- 3. Hero Section and CTA --- */
+
+.hero-subpage {
+    text-align: center;
+    padding: 60px 5% 30px;
+    border-bottom: 2px solid var(--secondary-color);
+}
+
+.hero-subpage h2 {
+    font-size: 2.5em;
+    font-weight: 300; 
+    margin-bottom: 10px;
+}
+
+/* --- 4. Editorial Featured Sermon (Emphasis) --- */
+.featured-sermon {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    text-align: center;
+}
+
+.featured-sermon h3 {
+    font-size: 2em;
+    margin-bottom: 30px;
+}
+
+.featured-preview-card {
+    max-width: 950px;
+    margin: 0 auto;
+    display: flex;
+    background: var(--background-card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--shadow-medium);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.featured-preview-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+
+.preview-image {
+    flex: 1;
+    min-width: 35%;
+    background-color: var(--accent-color); 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-light);
+    font-size: 0.9em;
+    font-style: italic;
+    font-family: var(--font-sans);
+}
+
+.preview-details {
+    flex: 2;
+    padding: 30px;
+    text-align: left;
+}
+
+.preview-details h4 {
+    font-size: 1.8em;
+    margin-bottom: 0.2em;
+}
+
+.preview-details .subtitle {
+    color: var(--secondary-color);
+    font-style: italic;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.preview-details .excerpt {
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-family: var(--font-sans);
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+}
+
+/* --- 5. Full-Width Promo CTA (The Divider) --- */
+.full-width-promo {
+    padding: 50px 0; /* Full width padding control */
+    background-color: var(--primary-color); 
+    color: var(--text-light);
+    text-align: center;
+    border-top: 8px double var(--secondary-color);
+    border-bottom: 8px double var(--secondary-color);
+}
+
+.full-width-promo .text-block {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.full-width-promo p {
+    font-style: italic;
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    opacity: 0.9;
+    font-family: var(--font-serif);
+}
+
+.full-width-promo h3 {
+    font-size: 2.2em;
+    color: var(--accent-color);
+    margin-top: 0;
+    font-weight: 900;
+}
+
+/* --- 6. Full Sermon Archive - Category Card Grid --- */
+
+.full-archive-container {
+    text-align: center;
+    padding-top: 60px;
+}
+
+.full-archive-container h2 {
+    font-size: 2em;
+}
+
+.full-archive-container .section-description {
+    color: #666;
+    margin-bottom: 30px;
+}
+
+.category-card-grid {
+    display: grid;
+    /* 2 columns on desktop, adapts for smaller screens */
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 30px;
+    padding-top: 20px;
+}
+
+.category-archive-card {
+    background: var(--background-card);
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 25px;
+    text-align: left;
+    box-shadow: var(--shadow-subtle);
+    transition: box-shadow 0.3s, transform 0.2s;
+}
+
+.category-archive-card:hover {
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    transform: translateY(-3px);
+}
+
+.category-archive-card h3 {
+    font-size: 1.5em;
+    border-bottom: 2px solid var(--secondary-color);
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+    font-family: var(--font-sans);
+}
+
+/* Sermon Tag List */
+.sermon-tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; /* Space between tags */
+}
+
+.sermon-tag-button {
+    /* Style the button/tag itself */
+    display: inline-block;
+    padding: 6px 12px;
+    background-color: var(--background-light); 
+    color: var(--primary-color);
+    border: 1px solid var(--accent-color);
+    border-radius: 20px; 
+    font-size: 0.9em;
+    font-family: var(--font-serif);
+    font-weight: 500;
+}
+
+.sermon-tag-button:hover {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+    border-color: var(--secondary-color);
+    text-decoration: none;
+}
+
+/* --- 7. Mobile Responsiveness --- */
+@media (max-width: 900px) {
+    body {
+        padding-top: 130px; /* Adjust for stacked header */
+    }
+
+    header.sermon-header .header-top {
+        flex-direction: column;
+        text-align: center;
+        padding-bottom: 10px;
+    }
+
+    .main-nav-links {
+        margin-top: 10px;
+    }
+
+    .category-jump-bar {
+        flex-wrap: wrap;
+        padding: 5px 5%;
+        justify-content: space-around;
+    }
+    
+    .category-jump-bar .jump-link {
+        margin: 5px 8px;
+        flex-grow: 1; /* Allow links to take more space */
+        text-align: center;
+    }
+
+    .featured-preview-card {
+        flex-direction: column;
+    }
+
+    .preview-image {
+        min-height: 150px;
+        min-width: 100%;
+        order: -1; /* Image on top */
+    }
+    
+    .preview-details {
+        padding: 20px;
+        text-align: center;
+    }
+
+    .preview-details h4 {
+        font-size: 1.5em;
+    }
+    
+    .cta-button {
+        display: block;
+        width: 100%;
+    }
+
+    .category-card-grid {
+        grid-template-columns: 1fr; /* Stack cards on mobile */
+    }
+}
+footer {
+    /* 1. Set the text alignment for all inline content (the <p> tags and their contents) */
+    text-align: center;
+    
+    /* Optional: Add padding for visual spacing */
+    padding: 20px 0; 
+    
+    /* Optional: Add a subtle border/background */
+    border-top: 1px solid #ccc;
+    background-color: #f0f0f0; 
+}
