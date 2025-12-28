@@ -464,16 +464,21 @@ footer p {
     }
 }
 
-/* Carousel Layout */
+/* 1. Carousel Container Fixes */
 .carousel-container {
     position: relative;
     width: 100%;
     margin: 40px auto;
+    /* Prevents content from overflowing during transitions */
+    overflow: visible; 
 }
 
 .carousel-track-container {
     overflow: hidden;
     position: relative;
+    /* This height will be adjusted by JS, but we set a safe minimum */
+    min-height: 500px;
+    transition: height 0.3s ease;
 }
 
 .carousel-track {
@@ -481,46 +486,99 @@ footer p {
     padding: 0;
     margin: 0;
     list-style: none;
-    transition: transform 0.5s ease-in-out;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .carousel-slide {
     min-width: 100%;
     box-sizing: border-box;
+    /* Prevents invisible slides from capturing clicks */
+    visibility: hidden;
 }
 
-/* Reusing your existing Grid style but optimizing for carousel */
+.carousel-slide.current-slide {
+    visibility: visible;
+}
+
+/* 2. Responsive Grid (Mobile-First Fix) */
 .reports-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    padding: 20px;
+    display: flex;
+    flex-direction: column; /* Vertical stack on mobile */
+    gap: 25px;
+    padding: 10px 15px; /* Side padding so text isn't against screen edges */
 }
 
-/* Controls */
+/* 3. Report Card & Video Fixes */
+.report-card {
+    background: var(--background-light);
+    padding: 25px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--card-shadow);
+    border-left: 4px solid var(--secondary-color);
+}
+
+.video-placeholder {
+    position: relative;
+    padding-bottom: 56.25%; /* Fixed 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    border-radius: var(--border-radius);
+    background: #000;
+}
+
+.video-placeholder iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* 4. Desktop Adjustments (Side-by-Side) */
+@media (min-width: 769px) {
+    .reports-grid {
+        flex-direction: row; /* Horizontal on desktop */
+        padding: 20px 50px; /* Space for the arrows */
+        align-items: flex-start;
+    }
+    
+    .report-card, .video-gallery {
+        flex: 1; /* Both take 50% width */
+    }
+}
+
+/* 5. Controls (Arrows) */
 .carousel-control {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0,0,0,0.5);
+    background: var(--primary-color);
     color: white;
     border: none;
-    padding: 15px;
+    width: 40px;
+    height: 40px;
     cursor: pointer;
     z-index: 10;
     border-radius: 50%;
-    font-size: 1.2rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
 }
 
-.carousel-control:hover { background: #333; }
-.prev { left: -20px; }
-.next { right: -20px; }
+.carousel-control:hover { background: var(--secondary-color); }
+.prev { left: -10px; }
+.next { right: -10px; }
 
-/* Dots */
+/* 6. Navigation Dots (Improved for Mobile) */
 .carousel-nav {
     display: flex;
     justify-content: center;
     padding: 20px 0;
+    flex-wrap: wrap; /* Dots wrap to new line on tiny screens */
+    gap: 12px;
 }
 
 .indicator {
@@ -528,19 +586,18 @@ footer p {
     border-radius: 50%;
     width: 12px;
     height: 12px;
-    background: rgba(0,0,0,0.3);
-    margin: 0 5px;
+    background: rgba(0,0,0,0.2);
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
 .indicator.current-indicator {
-    background: #007bff; /* Change to your theme color */
+    background: var(--secondary-color);
+    transform: scale(1.3);
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-    .reports-grid {
-        grid-template-columns: 1fr;
-    }
-    .carousel-control { display: none; } /* Use dots on mobile */
+/* 7. Hide elements that cause "ugly" overlaps on tiny screens */
+@media (max-width: 600px) {
+    .carousel-control { display: none; } /* Use dots for navigation on small phones */
+    .reports-grid { padding: 10px 5px; }
 }

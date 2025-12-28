@@ -1,40 +1,27 @@
-document.addEventListener('DOMContentLoaded', function() {
-    // 1. Get references to the elements
+document.addEventListener('DOMContentLoaded', () => {
+    /* --- 1. MOBILE MENU FUNCTIONALITY --- */
     const menuToggle = document.getElementById('menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
     const mobileLinks = mobileNav.querySelectorAll('a');
 
-    // 2. Function to toggle the menu state
     function toggleMenu() {
-        // Toggle the 'open' class on the mobile navigation menu
         mobileNav.classList.toggle('open');
-        
-        // Toggle the icon (CSS handles changing the bars to an 'X' when 'open' is present)
-        // If you were using an icon font like Font Awesome, you'd toggle the icon class here.
-        // Since we are using divs for bars (pure HTML), we'll let the CSS handle the transformation
-        // of the bars when the 'open' class is applied to the mobileNav container.
-        
-        // However, we can add a class to the toggle button itself to trigger a visual change if desired:
         menuToggle.classList.toggle('is-active');
     }
 
-    // 3. Event Listener for the Hamburger Button
-    menuToggle.addEventListener('click', toggleMenu);
+    if (menuToggle) {
+        menuToggle.addEventListener('click', toggleMenu);
+    }
 
-    // 4. Close the menu when a link is clicked (for seamless navigation)
     mobileLinks.forEach(link => {
-        link.addEventListener('click', function() {
-            // Check if the menu is open before closing
+        link.addEventListener('click', () => {
             if (mobileNav.classList.contains('open')) {
                 toggleMenu();
             }
         });
     });
 
-    console.log("Script loaded and menu functionality is active!");
-});
-
-document.addEventListener('DOMContentLoaded', () => {
+    /* --- 2. CAROUSEL & TIME TRACKER FUNCTIONALITY --- */
     const track = document.getElementById('carouselTrack');
     const slides = Array.from(track.children);
     const nextButton = document.getElementById('nextBtn');
@@ -42,66 +29,76 @@ document.addEventListener('DOMContentLoaded', () => {
     const dotsNav = document.getElementById('carouselNav');
     const dots = Array.from(dotsNav.children);
 
-    // 1. Configurar el ancho de los slides
-    const slideWidth = slides[0].getBoundingClientRect().width;
-    const setSlidePosition = (slide, index) => {
-        slide.style.left = slideWidth * index + 'px';
-    };
-    slides.forEach(setSlidePosition);
+    // Function to calculate heights and positions
+    const updateLayout = () => {
+        if (!slides.length) return;
+        const slideWidth = slides[0].getBoundingClientRect().width;
+        
+        // Arrange slides side-by-side
+        slides.forEach((slide, index) => {
+            slide.style.left = slideWidth * index + 'px';
+        });
 
-    // 2. Función principal de movimiento
+        // Fix the "superpuesto" (overlapping) issue by forcing container height
+        const currentSlide = track.querySelector('.current-slide') || slides[0];
+        const trackContainer = track.parentElement;
+        trackContainer.style.height = currentSlide.querySelector('.reports-grid').offsetHeight + 'px';
+    };
+
     const moveToSlide = (track, currentSlide, targetSlide) => {
         track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
         currentSlide.classList.remove('current-slide');
         targetSlide.classList.add('current-slide');
+        
+        // Update height immediately when moving
+        const trackContainer = track.parentElement;
+        trackContainer.style.height = targetSlide.querySelector('.reports-grid').offsetHeight + 'px';
     };
 
     const updateDots = (currentDot, targetDot) => {
-        currentDot.classList.remove('current-indicator');
-        targetDot.classList.add('current-indicator');
+        if (currentDot) currentDot.classList.remove('current-indicator');
+        if (targetDot) targetDot.classList.add('current-indicator');
     };
 
-    // 3. Lógica del "Time Tracker" (Rastreador de Tiempo)
+    /* --- 3. TIME TRACKER LOGIC --- */
     const setInitialMonth = () => {
         const now = new Date();
         const currentYear = now.getFullYear();
-        const currentMonth = now.getMonth(); // 0 = Enero, 11 = Diciembre
+        const currentMonth = now.getMonth(); // 0 = Jan, 11 = Dec
         
-        let targetIndex = 0; // Por defecto Noviembre 2025 (índice 0)
+        let targetIndex = 0; 
 
-        // Mapeo lógico basado en tu rango Nov 2025 - Oct 2026
         if (currentYear === 2025) {
-            if (currentMonth === 10) targetIndex = 0; // Noviembre
-            if (currentMonth === 11) targetIndex = 1; // Diciembre
+            if (currentMonth === 10) targetIndex = 0; // Nov
+            if (currentMonth === 11) targetIndex = 1; // Dec
         } else if (currentYear === 2026) {
-            // De Enero (0) a Octubre (9) se mapean a los índices 2 al 11
             if (currentMonth <= 9) {
                 targetIndex = currentMonth + 2;
             } else {
-                targetIndex = 11; // Si es después de Octubre, mostrar el último
+                targetIndex = 11; // Post-October 2026
             }
         } else if (currentYear > 2026) {
-            targetIndex = 11; // Si es un año posterior, mostrar último reporte
+            targetIndex = 11;
         }
 
-        const currentSlide = track.querySelector('.current-slide');
+        const currentSlide = slides[0];
         const targetSlide = slides[targetIndex];
         const currentDot = dotsNav.querySelector('.current-indicator');
         const targetDot = dots[targetIndex];
 
+        updateLayout();
         moveToSlide(track, currentSlide, targetSlide);
         updateDots(currentDot, targetDot);
     };
 
-    // Ejecutar rastreador al cargar
+    // Run layout and tracker
     setInitialMonth();
 
-    // 4. Eventos de los botones (Siguiente / Anterior)
-    nextButton.addEventListener('click', e => {
+    /* --- 4. NAVIGATION EVENTS --- */
+    nextButton.addEventListener('click', () => {
         const currentSlide = track.querySelector('.current-slide');
         const nextSlide = currentSlide.nextElementSibling;
         const currentDot = dotsNav.querySelector('.current-indicator');
-        const nextDot = currentDot.previousElementSibling; // Corrección lógica para dots
 
         if (nextSlide) {
             const targetDot = dots[slides.indexOf(nextSlide)];
@@ -110,7 +107,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    prevButton.addEventListener('click', e => {
+    prevButton.addEventListener('click', () => {
         const currentSlide = track.querySelector('.current-slide');
         const prevSlide = currentSlide.previousElementSibling;
         const currentDot = dotsNav.querySelector('.current-indicator');
@@ -122,7 +119,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // 5. Eventos de los indicadores (Puntos)
     dotsNav.addEventListener('click', e => {
         const targetDot = e.target.closest('button');
         if (!targetDot) return;
@@ -135,4 +131,9 @@ document.addEventListener('DOMContentLoaded', () => {
         moveToSlide(track, currentSlide, targetSlide);
         updateDots(currentDot, targetDot);
     });
+
+    // Handle window resizing (phone rotation)
+    window.addEventListener('resize', updateLayout);
+
+    console.log("Remastered JS loaded: Menu, Carousel Height Fix, and Time Tracker active.");
 });
