@@ -463,3 +463,84 @@ footer p {
         grid-template-columns: 1fr; /* Una sola columna en móvil */
     }
 }
+
+/* Carousel Layout */
+.carousel-container {
+    position: relative;
+    width: 100%;
+    margin: 40px auto;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel-track {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    transition: transform 0.5s ease-in-out;
+}
+
+.carousel-slide {
+    min-width: 100%;
+    box-sizing: border-box;
+}
+
+/* Reusing your existing Grid style but optimizing for carousel */
+.reports-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    padding: 20px;
+}
+
+/* Controls */
+.carousel-control {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    font-size: 1.2rem;
+}
+
+.carousel-control:hover { background: #333; }
+.prev { left: -20px; }
+.next { right: -20px; }
+
+/* Dots */
+.carousel-nav {
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.indicator {
+    border: 0;
+    border-radius: 50%;
+    width: 12px;
+    height: 12px;
+    background: rgba(0,0,0,0.3);
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.indicator.current-indicator {
+    background: #007bff; /* Change to your theme color */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .reports-grid {
+        grid-template-columns: 1fr;
+    }
+    .carousel-control { display: none; } /* Use dots on mobile */
+}
