@@ -1,8 +1,8 @@
 /* --- 1. Variables y Base --- */
 :root {
-    --ukbi-primary: #1a472a;    /* Verde Oxford (Académico) */
-    --ukbi-secondary: #2e7d32;  /* Verde Bosque */
-    --ukbi-accent: #fbc02d;     /* Oro (para etiquetas y detalles) */
+    --ukbi-primary: #1a472a;
+    --ukbi-secondary: #2e7d32;
+    --ukbi-accent: #fbc02d;
     --ukbi-bg: #f4f7f6;
     --ukbi-card: #ffffff;
     --ukbi-text: #2c3e50;
@@ -51,7 +51,7 @@ body {
     text-align: center;
     padding: 60px 5%;
     background: linear-gradient(rgba(26, 71, 42, 0.9), rgba(26, 71, 42, 0.9)), 
-                url('../assets/library-bg.jpg'); /* Opcional: una imagen de fondo de libros */
+                url('../assets/library-bg.jpg');
     background-size: cover;
     color: white;
 }
@@ -97,7 +97,7 @@ body {
     border-color: var(--ukbi-accent);
 }
 
-/* --- 4. La Cuadrícula de Libros --- */
+/* --- 4. La Cuadrícula de Libros (Refactorizada) --- */
 .library-grid-container {
     max-width: 1200px;
     margin: -40px auto 40px;
@@ -106,7 +106,7 @@ body {
 
 .books-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Aumentado un poco el ancho mínimo */
     gap: 30px;
 }
 
@@ -118,57 +118,68 @@ body {
     transition: transform 0.3s ease;
     display: flex;
     flex-direction: column;
+    height: 100%; /* Asegura que todas las tarjetas midan lo mismo */
 }
 
 .book-card:hover {
     transform: translateY(-10px);
 }
 
+/* Contenedor del Canvas */
 .book-cover {
-    height: 200px;
-    background: var(--ukbi-secondary);
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    width: 100%;
+    height: 350px; /* Aumentado para que la portada del PDF se vea completa */
+    background: #e0e0e0; /* Color neutro mientras carga */
     position: relative;
-    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Alinea el inicio del PDF arriba */
+    overflow: hidden;
+}
+
+/* Estilo específico para el Canvas */
+.pdf-preview {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover; /* Clave para que la vista previa llene el espacio sin salirse */
+    display: block;
 }
 
 .category-tag {
     position: absolute;
-    top: 10px;
-    right: 10px;
+    top: 15px;
+    right: 15px;
     background: var(--ukbi-accent);
     color: var(--ukbi-primary);
-    font-size: 0.7em;
+    font-size: 0.75em;
     font-weight: bold;
-    padding: 4px 10px;
+    padding: 5px 12px;
     border-radius: 4px;
     text-transform: uppercase;
-}
-
-.book-icon {
-    font-size: 4em;
+    z-index: 10; /* Asegura que esté sobre el canvas */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
 .book-info {
-    padding: 20px;
+    padding: 25px;
     text-align: center;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
+    background: white;
 }
 
 .book-info h3 {
-    margin: 0 0 10px;
-    font-size: 1.2em;
+    margin: 0 0 12px;
+    font-size: 1.3em;
     color: var(--ukbi-primary);
+    font-weight: 700;
 }
 
 .book-info p {
-    font-size: 0.9em;
-    color: #666;
-    margin-bottom: 20px;
+    font-size: 0.95em;
+    color: #555;
+    margin-bottom: 25px;
     flex-grow: 1;
 }
 
@@ -176,28 +187,22 @@ body {
     background: var(--ukbi-primary);
     color: white;
     text-decoration: none;
-    padding: 10px;
-    border-radius: 6px;
+    padding: 12px 20px;
+    border-radius: 8px;
     font-weight: bold;
-    transition: 0.3s;
+    transition: background 0.3s;
+    display: inline-block;
 }
 
 .download-btn:hover {
     background: var(--ukbi-secondary);
 }
 
-/* --- 5. Footer y Secciones Especiales --- */
-.special-thanks {
-    text-align: center;
-    padding: 40px 5%;
-    background: #e8edea;
-    color: var(--ukbi-primary);
-    font-style: italic;
-}
-
+/* --- 5. Footer --- */
 footer {
     text-align: center;
-    padding: 20px;
+    padding: 30px;
     background: var(--ukbi-primary);
     color: white;
+    margin-top: 50px;
 }
