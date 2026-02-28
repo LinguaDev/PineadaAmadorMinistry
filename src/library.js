@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         pdfjsLib.getDocument(url).promise.then(pdf => {
             pdf.getPage(1).then(page => {
                 // Ajustamos la escala para una buena resolución de miniatura
-                const viewport = page.getViewport({ scale: 0.8 });
+                const viewport = page.getViewport({ scale: 1.5 });
                 canvas.height = viewport.height;
                 canvas.width = viewport.width;
 
@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     canvasContext: context,
                     viewport: viewport
                 };
-                page.render(renderContext);
+                page.render(renderContext).promise;
             });
         }).catch(err => {
             console.error("Error al generar vista previa: ", err);
@@ -83,11 +83,6 @@ style.innerHTML = `
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
-    }
-    .pdf-preview {
-        max-width: 100%;
-        height: auto;
-        display: block;
     }
 `;
 document.head.appendChild(style);
