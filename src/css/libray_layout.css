@@ -1,0 +1,203 @@
+/* --- 1. Variables y Base --- */
+:root {
+    --ukbi-primary: #1a472a;    /* Verde Oxford (Académico) */
+    --ukbi-secondary: #2e7d32;  /* Verde Bosque */
+    --ukbi-accent: #fbc02d;     /* Oro (para etiquetas y detalles) */
+    --ukbi-bg: #f4f7f6;
+    --ukbi-card: #ffffff;
+    --ukbi-text: #2c3e50;
+    --ukbi-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--ukbi-bg);
+    font-family: var(--font-main);
+    color: var(--ukbi-text);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* --- 2. Header & Hero --- */
+.library-header {
+    background: var(--ukbi-primary);
+    color: white;
+    padding: 20px 5%;
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.library-nav a {
+    color: white;
+    text-decoration: none;
+    border: 1px solid white;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.library-nav a:hover {
+    background: white;
+    color: var(--ukbi-primary);
+}
+
+.library-hero {
+    text-align: center;
+    padding: 60px 5%;
+    background: linear-gradient(rgba(26, 71, 42, 0.9), rgba(26, 71, 42, 0.9)), 
+                url('../assets/library-bg.jpg'); /* Opcional: una imagen de fondo de libros */
+    background-size: cover;
+    color: white;
+}
+
+/* --- 3. Buscador y Filtros --- */
+.library-controls {
+    margin-top: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#librarySearch {
+    width: 100%;
+    padding: 15px;
+    border-radius: 30px;
+    border: none;
+    font-size: 1.1em;
+    margin-bottom: 20px;
+    box-shadow: var(--ukbi-shadow);
+}
+
+.filter-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn {
+    background: rgba(255,255,255,0.2);
+    border: 1px solid white;
+    color: white;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-btn.active, .filter-btn:hover {
+    background: var(--ukbi-accent);
+    color: var(--ukbi-primary);
+    border-color: var(--ukbi-accent);
+}
+
+/* --- 4. La Cuadrícula de Libros --- */
+.library-grid-container {
+    max-width: 1200px;
+    margin: -40px auto 40px;
+    padding: 0 20px;
+}
+
+.books-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.book-card {
+    background: var(--ukbi-card);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: var(--ukbi-shadow);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-card:hover {
+    transform: translateY(-10px);
+}
+
+.book-cover {
+    height: 200px;
+    background: var(--ukbi-secondary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    color: white;
+}
+
+.category-tag {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: var(--ukbi-accent);
+    color: var(--ukbi-primary);
+    font-size: 0.7em;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 4px;
+    text-transform: uppercase;
+}
+
+.book-icon {
+    font-size: 4em;
+}
+
+.book-info {
+    padding: 20px;
+    text-align: center;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-info h3 {
+    margin: 0 0 10px;
+    font-size: 1.2em;
+    color: var(--ukbi-primary);
+}
+
+.book-info p {
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 20px;
+    flex-grow: 1;
+}
+
+.download-btn {
+    background: var(--ukbi-primary);
+    color: white;
+    text-decoration: none;
+    padding: 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.download-btn:hover {
+    background: var(--ukbi-secondary);
+}
+
+/* --- 5. Footer y Secciones Especiales --- */
+.special-thanks {
+    text-align: center;
+    padding: 40px 5%;
+    background: #e8edea;
+    color: var(--ukbi-primary);
+    font-style: italic;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: var(--ukbi-primary);
+    color: white;
+}
