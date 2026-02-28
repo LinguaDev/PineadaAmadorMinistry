@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UKBI Library - United Kingdom Bible Institute | Pineda Amador Ministry</title>
     <link rel="stylesheet" href="css/library_layout.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
 </head>
 <body>
 
@@ -29,10 +30,10 @@
             <input type="text" id="librarySearch" placeholder="Search by book title or topic...">
             <div class="filter-group">
                 <button class="filter-btn active" data-filter="all">All</button>
-                <button class="filter-btn" data-filter="pentateuch">Pentateuch</button>
-                <button class="filter-btn" data-filter="gospels">Gospels</button>
-                <button class="filter-btn" data-filter="doctrine">Doctrine</button>
+                <button class="filter-btn" data-filter="pentateuch">Old Testament</button>
+                <button class="filter-btn" data-filter="gospels">New Testament</button>
                 <button class="filter-btn" data-filter="ministry">Ministry</button>
+                <button class="filter-btn" data-filter="doctrine">Doctrine</button>
             </div>
         </div>
     </section>
@@ -42,8 +43,8 @@
             
             <div class="book-card" data-category="pentateuch">
                 <div class="book-cover">
-                    <span class="category-tag">Pentateuch</span>
-                    <img src="img/covers/genesis_cover.jpg" alt="Genesis Cover" class="book-img">
+                    <span class="category-tag">Old Testament</span>
+                    <canvas class="pdf-preview" data-pdf="pdf/ukbi_genesis.pdf"></canvas>
                 </div>
                 <div class="book-info">
                     <h3>Genesis: The Beginning</h3>
@@ -55,7 +56,7 @@
             <div class="book-card" data-category="doctrine">
                 <div class="book-cover">
                     <span class="category-tag">Doctrine</span>
-                    <img src="img/covers/redemption_cover.jpg" alt="Redemption Cover" class="book-img">
+                    <canvas class="pdf-preview" data-pdf="pdf/ukbi_redemption.pdf"></canvas>
                 </div>
                 <div class="book-info">
                     <h3>The Scheme of Redemption</h3>
@@ -67,7 +68,7 @@
             <div class="book-card" data-category="ministry">
                 <div class="book-cover">
                     <span class="category-tag">Ministry</span>
-                    <img src="img/covers/homiletics_cover.jpg" alt="Homiletics Cover" class="book-img">
+                    <canvas class="pdf-preview" data-pdf="pdf/ukbi_homiletics.pdf"></canvas>
                 </div>
                 <div class="book-info">
                     <h3>Homiletics: Biblical Preaching</h3>
@@ -78,8 +79,8 @@
 
             <div class="book-card" data-category="gospels">
                 <div class="book-cover">
-                    <span class="category-tag">Gospels</span>
-                    <img src="img/covers/mark_cover.jpg" alt="Mark Cover" class="book-img">
+                    <span class="category-tag">New Testament</span>
+                    <canvas class="pdf-preview" data-pdf="pdf/ukbi_mark.pdf"></canvas>
                 </div>
                 <div class="book-info">
                     <h3>The Gospel of Mark</h3>
