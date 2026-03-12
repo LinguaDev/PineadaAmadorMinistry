@@ -29,20 +29,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const dotsNav = document.getElementById('carouselNav');
     const dots = Array.from(dotsNav.children);
 
-    // Function to calculate heights and positions
+    // Función actualizada para buscar .video-only-card
     const updateLayout = () => {
         if (!slides.length) return;
         const slideWidth = slides[0].getBoundingClientRect().width;
         
-        // Arrange slides side-by-side
         slides.forEach((slide, index) => {
             slide.style.left = slideWidth * index + 'px';
         });
 
-        // Fix the "superpuesto" (overlapping) issue by forcing container height
         const currentSlide = track.querySelector('.current-slide') || slides[0];
         const trackContainer = track.parentElement;
-        trackContainer.style.height = currentSlide.querySelector('.reports-grid').offsetHeight + 'px';
+        // Ajuste: ahora se busca .video-only-card
+        trackContainer.style.height = currentSlide.querySelector('.video-only-card').offsetHeight + 'px';
     };
 
     const moveToSlide = (track, currentSlide, targetSlide) => {
@@ -50,9 +49,9 @@ document.addEventListener('DOMContentLoaded', () => {
         currentSlide.classList.remove('current-slide');
         targetSlide.classList.add('current-slide');
         
-        // Update height immediately when moving
         const trackContainer = track.parentElement;
-        trackContainer.style.height = targetSlide.querySelector('.reports-grid').offsetHeight + 'px';
+        // Ajuste: ahora se busca .video-only-card
+        trackContainer.style.height = targetSlide.querySelector('.video-only-card').offsetHeight + 'px';
     };
 
     const updateDots = (currentDot, targetDot) => {
@@ -64,24 +63,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const setInitialMonth = () => {
         const now = new Date();
         const currentYear = now.getFullYear();
-        const currentMonth = now.getMonth(); // 0 = Jan, 11 = Dec
+        const currentMonth = now.getMonth(); 
         
         let targetIndex = 0; 
 
+        // Lógica de fechas ajustada para el nuevo número de slides (4)
         if (currentYear === 2025) {
-            if (currentMonth === 10) targetIndex = 0; // Nov
-            if (currentMonth === 11) targetIndex = 1; // Dec
+            if (currentMonth === 10) targetIndex = 0; // Nov 2025
+            else if (currentMonth === 11) targetIndex = 1; // Dec 2025
+            else targetIndex = 0;
         } else if (currentYear === 2026) {
-            if (currentMonth <= 9) {
-                targetIndex = currentMonth + 2;
-            } else {
-                targetIndex = 11; // Post-October 2026
-            }
-        } else if (currentYear > 2026) {
-            targetIndex = 11;
+            if (currentMonth === 0) targetIndex = 2; // Jan 2026
+            else if (currentMonth === 1) targetIndex = 3; // Feb 2026
+            else targetIndex = 3; // Mantener en el último video si es posterior
+        } else {
+            targetIndex = 3;
         }
 
-        const currentSlide = slides[0];
+        const currentSlide = track.querySelector('.current-slide');
         const targetSlide = slides[targetIndex];
         const currentDot = dotsNav.querySelector('.current-indicator');
         const targetDot = dots[targetIndex];
@@ -91,7 +90,6 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDots(currentDot, targetDot);
     };
 
-    // Run layout and tracker
     setInitialMonth();
 
     /* --- 4. NAVIGATION EVENTS --- */
@@ -132,8 +130,5 @@ document.addEventListener('DOMContentLoaded', () => {
         updateDots(currentDot, targetDot);
     });
 
-    // Handle window resizing (phone rotation)
     window.addEventListener('resize', updateLayout);
-
-    console.log("Remastered JS loaded: Menu, Carousel Height Fix, and Time Tracker active.");
 });
