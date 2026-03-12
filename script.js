@@ -1,93 +1,63 @@
 document.addEventListener('DOMContentLoaded', () => {
-    /* --- 1. MOBILE MENU FUNCTIONALITY --- */
+    /* --- 1. GESTIÓN DEL MENÚ MÓVIL --- */
     const menuToggle = document.getElementById('menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
-    const mobileLinks = mobileNav.querySelectorAll('a');
-
-    function toggleMenu() {
-        mobileNav.classList.toggle('open');
-        // Ocultar/Mostrar el menú al alternar
-        if (mobileNav.classList.contains('open')) {
-            mobileNav.classList.remove('hidden');
-        } else {
-            // Se puede añadir un pequeño delay si se desea una transición de cierre
-            mobileNav.classList.add('hidden');
-        }
-    }
 
     if (menuToggle) {
-        menuToggle.addEventListener('click', toggleMenu);
+        menuToggle.addEventListener('click', () => {
+            mobileNav.classList.toggle('open');
+            mobileNav.classList.toggle('hidden');
+        });
     }
 
-    mobileLinks.forEach(link => {
-        link.addEventListener('click', () => {
-            if (mobileNav.classList.contains('open')) {
-                toggleMenu();
-            }
-        });
-    });
-
-    /* --- 2. CAROUSEL FUNCTIONALITY --- */
+    /* --- 2. LÓGICA MODERNA DEL CARRUSEL --- */
     const track = document.getElementById('carouselTrack');
     const slides = Array.from(track.children);
-    const nextButton = document.getElementById('nextBtn');
-    const prevButton = document.getElementById('prevBtn');
-    const dotsNav = document.getElementById('carouselNav');
-    const dots = Array.from(dotsNav.children);
+    const nextBtn = document.getElementById('nextBtn');
+    const prevBtn = document.getElementById('prevBtn');
+    const navIndicators = document.getElementById('carouselNav');
+    const dots = Array.from(navIndicators.children);
 
-    const updateLayout = () => {
-        const slideWidth = slides[0].getBoundingClientRect().width;
-        slides.forEach((slide, index) => {
-            slide.style.left = slideWidth * index + 'px';
-        });
-    };
-
-    const moveToSlide = (targetSlide) => {
-        track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
-        
+    // Función principal para mover el carrusel
+    const moveToSlide = (targetIndex) => {
+        const targetSlide = slides[targetIndex];
         const currentSlide = track.querySelector('.current-slide');
+        
+        // Desplazamiento mediante transform
+        track.style.transform = `translateX(-${targetSlide.offsetLeft}px)`;
+        
+        // Actualizar estados
         currentSlide.classList.remove('current-slide');
         targetSlide.classList.add('current-slide');
+        
+        // Actualizar indicadores
+        navIndicators.querySelector('.current-indicator').classList.remove('current-indicator');
+        dots[targetIndex].classList.add('current-indicator');
     };
-
-    const updateDots = (targetDot) => {
-        const currentDot = dotsNav.querySelector('.current-indicator');
-        currentDot.classList.remove('current-indicator');
-        targetDot.classList.add('current-indicator');
-    };
-
-    // Inicializar layout
-    updateLayout();
-    window.addEventListener('resize', updateLayout);
 
     // Eventos de botones
-    nextButton.addEventListener('click', () => {
-        const currentSlide = track.querySelector('.current-slide');
-        const nextSlide = currentSlide.nextElementSibling;
-        if (nextSlide) {
-            moveToSlide(nextSlide);
-            updateDots(dots[slides.indexOf(nextSlide)]);
-        }
+    nextBtn.addEventListener('click', () => {
+        const currentIndex = slides.findIndex(s => s.classList.contains('current-slide'));
+        const nextIndex = (currentIndex + 1) % slides.length; // Ciclo infinito
+        moveToSlide(nextIndex);
     });
 
-    prevButton.addEventListener('click', () => {
-        const currentSlide = track.querySelector('.current-slide');
-        const prevSlide = currentSlide.previousElementSibling;
-        if (prevSlide) {
-            moveToSlide(prevSlide);
-            updateDots(dots[slides.indexOf(prevSlide)]);
-        }
+    prevBtn.addEventListener('click', () => {
+        const currentIndex = slides.findIndex(s => s.classList.contains('current-slide'));
+        const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+        moveToSlide(prevIndex);
     });
 
-    // Eventos de puntos de navegación
-    dotsNav.addEventListener('click', e => {
-        const targetDot = e.target.closest('button');
-        if (!targetDot) return;
-        
-        const targetIndex = dots.findIndex(dot => dot === targetDot);
-        const targetSlide = slides[targetIndex];
-        
-        moveToSlide(targetSlide);
-        updateDots(targetDot);
+    // Eventos de navegación por puntos
+    navIndicators.addEventListener('click', (e) => {
+        if (!e.target.classList.contains('indicator')) return;
+        const targetIndex = dots.findIndex(dot => dot === e.target);
+        moveToSlide(targetIndex);
+    });
+
+    // Ajuste responsivo automático
+    window.addEventListener('resize', () => {
+        const currentSlide = track.querySelector('.current-slide');
+        track.style.transform = `translateX(-${currentSlide.offsetLeft}px)`;
     });
 });

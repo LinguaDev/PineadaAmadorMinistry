@@ -1,127 +1,110 @@
 /* =========================================
-   1. GLOBAL SETUP & VARIABLES
+   1. VARIABLES Y RESET (Modern Design)
    ========================================= */
 :root {
-    --primary-color: #004a77;
-    --secondary-color: #0077b6;
-    --accent-color: #ffb703;
-    --text-dark: #333333;
-    --text-light: #f8f8f8;
-    --background-light: #ffffff;
-    --background-gray: #f9f9f9;
-    --card-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-    --border-radius: 6px;
-    --font-family: 'Inter', system-ui, -apple-system, sans-serif;
+    --primary: #004a77;
+    --secondary: #0077b6;
+    --accent: #ffb703;
+    --text-main: #2d3436;
+    --bg-light: #f8f9fa;
+    --white: #ffffff;
+    --shadow-soft: 0 10px 25px -5px rgba(0,0,0,0.1);
+    --radius: 12px;
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
-body {
-    font-family: var(--font-family);
-    line-height: 1.65;
-    color: var(--text-dark);
-    background-color: var(--background-light);
-    font-size: 16px;
+body { 
+    font-family: 'Inter', system-ui, sans-serif; 
+    line-height: 1.7; 
+    color: var(--text-main); 
+    background: var(--bg-light); 
 }
 
-.container { width: 90%; max-width: 1000px; margin: 0 auto; }
-section { padding: 80px 0; overflow: hidden; }
+.container { width: 90%; max-width: 1100px; margin: 0 auto; }
 
 /* =========================================
-   2. TYPOGRAPHY
+   2. HEADER Y NAV (Flexbox Layout)
    ========================================= */
-h1, h2, h3, h4 { color: var(--primary-color); font-weight: 800; }
-h2 { font-size: 2rem; margin-bottom: 5px; text-align: center; }
-.section-subtitle { display: block; text-align: center; color: #888; margin-bottom: 40px; font-style: italic; }
-.bible-passage { font-style: italic; font-size: 1.2rem; max-width: 800px; margin: 0 auto 30px; border-left: 4px solid var(--accent-color); padding-left: 20px; }
+header { 
+    background: var(--white); 
+    padding: 20px 0; 
+    position: sticky; top: 0; z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+header .container { display: flex; justify-content: space-between; align-items: center; }
+
+.desktop-nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
+.desktop-nav a { text-decoration: none; color: var(--text-main); font-weight: 500; transition: 0.3s; }
+.desktop-nav a:hover { color: var(--secondary); }
 
 /* =========================================
-   3. COMPONENTS & BUTTONS
+   3. SECCIONES CON GRID (Rejillas Modernas)
+   ========================================= */
+/* About Grid */
+.about-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); 
+    gap: 40px; 
+    margin-top: 40px;
+}
+
+.profile-card { 
+    background: var(--white); 
+    padding: 40px; 
+    border-radius: var(--radius); 
+    box-shadow: var(--shadow-soft); 
+    text-align: center;
+}
+
+/* Resources Grid */
+.resource-grid { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 25px; 
+    margin-top: 30px;
+}
+
+.resource-item { 
+    background: var(--white); 
+    padding: 30px; 
+    border-radius: var(--radius); 
+    border-top: 4px solid var(--secondary);
+}
+
+/* =========================================
+   4. CAROUSEL (Estructura Flex)
+   ========================================= */
+
+
+.carousel-container { position: relative; max-width: 800px; margin: 40px auto; overflow: hidden; }
+.carousel-track { display: flex; list-style: none; transition: 0.5s; }
+.carousel-slide { min-width: 100%; }
+
+.video-placeholder { 
+    position: relative; padding-bottom: 56.25%; height: 0; 
+    border-radius: var(--radius); overflow: hidden; background: #000;
+}
+.video-placeholder iframe { position: absolute; top:0; left:0; width: 100%; height: 100%; }
+
+/* =========================================
+   5. BOTONES Y COMPONENTES
    ========================================= */
 .cta-button {
-    display: inline-block;
-    background: var(--primary-color);
-    color: var(--text-light) !important;
-    padding: 10px 22px;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    border: 2px solid var(--primary-color);
-    transition: all 0.3s ease;
+    background: var(--primary); color: white; padding: 12px 24px;
+    border-radius: 8px; font-weight: 600; text-decoration: none;
 }
-.cta-button:hover { background: var(--secondary-color); border-color: var(--secondary-color); text-decoration: none; }
-.cta-button.large { padding: 15px 35px; font-size: 1.1rem; margin-top: 30px; }
-
 .donate-btn {
-    background: var(--accent-color);
-    color: var(--text-dark) !important;
-    padding: 16px 40px;
-    border-radius: var(--border-radius);
-    font-size: 1.2rem;
-    font-weight: 700;
-    border: none;
-    display: inline-block;
-    margin: 20px 0;
-    transition: all 0.3s ease;
+    background: var(--accent); color: var(--text-main); padding: 16px 40px;
+    border-radius: var(--radius); font-weight: 800; text-decoration: none;
+    display: inline-block; transition: 0.3s;
 }
-.donate-btn:hover { background: #ffd366; transform: translateY(-2px); text-decoration: none; }
+.donate-btn:hover { transform: translateY(-5px); box-shadow: var(--shadow-soft); }
 
 /* =========================================
-   4. NAVIGATION
-   ========================================= */
-header { background: var(--background-light); padding: 20px 0; box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000; }
-header .container { display: flex; justify-content: space-between; align-items: center; }
-.desktop-nav ul { list-style: none; display: flex; align-items: center; }
-.desktop-nav ul li { margin-left: 20px; }
-.desktop-nav ul li a { color: var(--text-dark); font-weight: 500; }
-
-#menu-toggle { display: none; background: none; border: none; cursor: pointer; }
-#menu-toggle .bar { width: 28px; height: 3px; background-color: var(--primary-color); margin: 6px 0; }
-
-.mobile-nav { position: fixed; top: 0; right: 0; width: 80%; height: 100vh; background: var(--primary-color); padding-top: 100px; transform: translateX(100%); transition: transform 0.4s; z-index: 999; }
-.mobile-nav.open { transform: translateX(0); }
-.mobile-nav ul li a { color: var(--text-light); display: block; padding: 15px 20px; }
-.hidden { display: none; }
-
-/* =========================================
-   5. CAROUSEL STRUCTURE
-   ========================================= */
-
-
-.carousel-container { position: relative; width: 100%; max-width: 800px; margin: 40px auto; overflow: hidden; }
-.carousel-track-container { position: relative; overflow: hidden; min-height: 450px; }
-.carousel-track { display: flex; list-style: none; transition: transform 0.5s ease-in-out; }
-.carousel-slide { min-width: 100%; box-sizing: border-box; display: flex; justify-content: center; align-items: flex-start; }
-
-.video-only-card { width: 100%; padding: 20px; text-align: center; }
-.video-placeholder { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: var(--border-radius); background: #000; }
-.video-placeholder iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
-
-.carousel-control { position: absolute; top: 40%; transform: translateY(-50%); background: var(--primary-color); color: white; border: none; width: 45px; height: 45px; cursor: pointer; z-index: 10; border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-.prev { left: 0px; } .next { right: 0px; }
-
-.carousel-nav { display: flex; justify-content: center; gap: 10px; margin-top: 20px; }
-.indicator { width: 12px; height: 12px; border-radius: 50%; background: #ccc; border: none; cursor: pointer; }
-.indicator.current-indicator { background: var(--primary-color); }
-
-/* =========================================
-   6. MISC SECTIONS (ABOUT, RESOURCES, FOOTER)
-   ========================================= */
-.about .container, .resources .container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 40px; }
-.profile-card, .resource-item { background: var(--background-gray); padding: 30px; border-radius: var(--border-radius); box-shadow: var(--card-shadow); text-align: center; }
-.profile-img { width: 130px; height: 130px; border-radius: 50%; border: 3px solid var(--primary-color); margin-bottom: 15px; }
-.cta-donation { background: var(--primary-color); color: var(--text-light); text-align: center; padding: 80px 0; }
-footer { background: var(--text-dark); color: var(--text-light); text-align: center; padding: 40px 0; }
-
-/* =========================================
-   7. RESPONSIVE
+   6. RESPONSIVE
    ========================================= */
 @media (max-width: 950px) {
     .desktop-nav { display: none; }
-    #menu-toggle { display: block; }
-    .mobile-nav.hidden { display: block; }
-}
-@media (max-width: 600px) {
-    .carousel-control { display: none; }
+    #menu-toggle { display: block; cursor: pointer; }
 }
