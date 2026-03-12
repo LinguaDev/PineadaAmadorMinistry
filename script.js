@@ -1,59 +1,146 @@
+// script.js — Pineda Amador Family Ministry
+
 document.addEventListener('DOMContentLoaded', () => {
-    /* --- 1. GESTIÓN DEL MENÚ MÓVIL --- */
+    // ────────────────────────────────────────────────
+    // Mobile Menu Toggle
+    // ────────────────────────────────────────────────
     const menuToggle = document.getElementById('menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
 
-    // Cambiamos el comportamiento: toggle de la clase 'hidden'
     if (menuToggle && mobileNav) {
         menuToggle.addEventListener('click', () => {
-            mobileNav.classList.toggle('hidden');
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            mobileNav.classList.toggle('active');
+
+            // Optional: trap focus inside mobile menu (accessibility improvement)
+            if (!isExpanded) {
+                mobileNav.querySelector('a')?.focus();
+            }
+        });
+
+        // Close mobile menu when clicking any link
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                mobileNav.classList.remove('active');
+            });
+        });
+
+        // Close on outside click (optional but nice UX)
+        document.addEventListener('click', (e) => {
+            if (!mobileNav.contains(e.target) && !menuToggle.contains(e.target)) {
+                menuToggle.setAttribute('aria-expanded', 'false');
+                mobileNav.classList.remove('active');
+            }
         });
     }
 
-    /* --- 2. LÓGICA DEL CARRUSEL --- */
+    // ────────────────────────────────────────────────
+    // Smooth scrolling for all anchor links
+    // ────────────────────────────────────────────────
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
+
+            const target = document.querySelector(targetId);
+            if (target) {
+                const headerOffset = 80; // approx header height + buffer
+                const elementPosition = target.getBoundingClientRect().top;
+                const offsetPosition = elementPosition + window.scrollY - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            }
+        });
+    });
+
+    // ────────────────────────────────────────────────
+    // Carousel (Featured Ministry Videos)
+    // ────────────────────────────────────────────────
     const track = document.getElementById('carouselTrack');
-    const nextBtn = document.getElementById('nextBtn');
-    const prevBtn = document.getElementById('prevBtn');
-    const navIndicators = document.getElementById('carouselNav');
+    const slides = Array.from(track?.querySelectorAll('.carousel-slide') || []);
+    const prevButton = document.getElementById('prevBtn');
+    const nextButton = document.getElementById('nextBtn');
+    const dotsNav = document.getElementById('carouselNav');
+    const dots = Array.from(dotsNav?.querySelectorAll('.indicator') || []);
 
-    if (track && nextBtn && prevBtn && navIndicators) {
-        const slides = Array.from(track.children);
-        const dots = Array.from(navIndicators.children);
+    if (track && slides.length > 0 && prevButton && nextButton && dots.length === slides.length) {
+        let currentIndex = 0;
 
-        const moveToSlide = (targetIndex) => {
-            const currentSlide = track.querySelector('.current-slide');
-            const targetSlide = slides[targetIndex];
-            
-            // Mover track usando el ancho de la diapositiva
-            const amountToMove = targetSlide.offsetLeft;
-            track.style.transform = `translateX(-${amountToMove}px)`;
-            
-            // Actualizar clases
-            currentSlide.classList.remove('current-slide');
-            targetSlide.classList.add('current-slide');
-            
-            // Actualizar indicadores
-            const currentDot = navIndicators.querySelector('.current-indicator');
-            if (currentDot) currentDot.classList.remove('current-indicator');
-            dots[targetIndex].classList.add('current-indicator');
-        };
+        function updateCarousel() {
+            // Move track
+            const slideWidth = slides[0].getBoundingClientRect().width;
+            track.style.transform = `translateX(-${currentIndex * slideWidth}px)`;
 
-        nextBtn.addEventListener('click', () => {
-            const currentIndex = slides.findIndex(s => s.classList.contains('current-slide'));
-            const nextIndex = (currentIndex + 1) % slides.length;
-            moveToSlide(nextIndex);
+            // Update dots
+            dots.forEach((dot, idx) => {
+                dot.classList.toggle('current-indicator', idx === currentIndex);
+            });
+
+            // Disable buttons at ends (optional)
+            prevButton.disabled = currentIndex === 0;
+            nextButton.disabled = currentIndex === slides.length - 1;
+        }
+
+        // Button handlers
+        prevButton.addEventListener('click', () => {
+            if (currentIndex > 0) {
+                currentIndex--;
+                updateCarousel();
+            }
         });
 
-        prevBtn.addEventListener('click', () => {
-            const currentIndex = slides.findIndex(s => s.classList.contains('current-slide'));
-            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-            moveToSlide(prevIndex);
+        nextButton.addEventListener('click', () => {
+            if (currentIndex < slides.length - 1) {
+                currentIndex++;
+                updateCarousel();
+            }
         });
 
-        navIndicators.addEventListener('click', (e) => {
-            if (!e.target.classList.contains('indicator')) return;
-            const targetIndex = dots.indexOf(e.target);
-            moveToSlide(targetIndex);
+        // Dot click handlers
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                currentIndex = index;
+                updateCarousel();
+            });
         });
+
+        // Handle window resize (recalculate position)
+        window.addEventListener('resize', updateCarousel);
+
+        // Initial setup
+        updateCarousel();
     }
+
+    // ────────────────────────────────────────────────
+    // Optional: Scroll-to-top button (uncomment if desired)
+    // ────────────────────────────────────────────────
+    /*
+    const scrollTopBtn = document.createElement('button');
+    scrollTopBtn.innerHTML = '↑';
+    scrollTopBtn.setAttribute('aria-label', 'Back to top');
+    scrollTopBtn.className = 'scroll-top-btn';
+    document.body.appendChild(scrollTopBtn);
+
+    scrollTopBtn.style.cssText = `
+        position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px;
+        background: #e65100; color: white; border: none; border-radius: 50%;
+        font-size: 1.6rem; cursor: pointer; opacity: 0; transition: all 0.3s;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.2); z-index: 999;
+    `;
+
+    window.addEventListener('scroll', () => {
+        scrollTopBtn.style.opacity = window.scrollY > 400 ? '1' : '0';
+        scrollTopBtn.style.pointerEvents = window.scrollY > 400 ? 'auto' : 'none';
+    });
+
+    scrollTopBtn.addEventListener('click', () => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+    */
 });
