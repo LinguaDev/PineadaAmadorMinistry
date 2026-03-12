@@ -3,61 +3,57 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuToggle = document.getElementById('menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
 
-    if (menuToggle) {
+    // Cambiamos el comportamiento: toggle de la clase 'hidden'
+    if (menuToggle && mobileNav) {
         menuToggle.addEventListener('click', () => {
-            mobileNav.classList.toggle('open');
             mobileNav.classList.toggle('hidden');
         });
     }
 
-    /* --- 2. LÓGICA MODERNA DEL CARRUSEL --- */
+    /* --- 2. LÓGICA DEL CARRUSEL --- */
     const track = document.getElementById('carouselTrack');
-    const slides = Array.from(track.children);
     const nextBtn = document.getElementById('nextBtn');
     const prevBtn = document.getElementById('prevBtn');
     const navIndicators = document.getElementById('carouselNav');
-    const dots = Array.from(navIndicators.children);
 
-    // Función principal para mover el carrusel
-    const moveToSlide = (targetIndex) => {
-        const targetSlide = slides[targetIndex];
-        const currentSlide = track.querySelector('.current-slide');
-        
-        // Desplazamiento mediante transform
-        track.style.transform = `translateX(-${targetSlide.offsetLeft}px)`;
-        
-        // Actualizar estados
-        currentSlide.classList.remove('current-slide');
-        targetSlide.classList.add('current-slide');
-        
-        // Actualizar indicadores
-        navIndicators.querySelector('.current-indicator').classList.remove('current-indicator');
-        dots[targetIndex].classList.add('current-indicator');
-    };
+    if (track && nextBtn && prevBtn && navIndicators) {
+        const slides = Array.from(track.children);
+        const dots = Array.from(navIndicators.children);
 
-    // Eventos de botones
-    nextBtn.addEventListener('click', () => {
-        const currentIndex = slides.findIndex(s => s.classList.contains('current-slide'));
-        const nextIndex = (currentIndex + 1) % slides.length; // Ciclo infinito
-        moveToSlide(nextIndex);
-    });
+        const moveToSlide = (targetIndex) => {
+            const currentSlide = track.querySelector('.current-slide');
+            const targetSlide = slides[targetIndex];
+            
+            // Mover track usando el ancho de la diapositiva
+            const amountToMove = targetSlide.offsetLeft;
+            track.style.transform = `translateX(-${amountToMove}px)`;
+            
+            // Actualizar clases
+            currentSlide.classList.remove('current-slide');
+            targetSlide.classList.add('current-slide');
+            
+            // Actualizar indicadores
+            const currentDot = navIndicators.querySelector('.current-indicator');
+            if (currentDot) currentDot.classList.remove('current-indicator');
+            dots[targetIndex].classList.add('current-indicator');
+        };
 
-    prevBtn.addEventListener('click', () => {
-        const currentIndex = slides.findIndex(s => s.classList.contains('current-slide'));
-        const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
-        moveToSlide(prevIndex);
-    });
+        nextBtn.addEventListener('click', () => {
+            const currentIndex = slides.findIndex(s => s.classList.contains('current-slide'));
+            const nextIndex = (currentIndex + 1) % slides.length;
+            moveToSlide(nextIndex);
+        });
 
-    // Eventos de navegación por puntos
-    navIndicators.addEventListener('click', (e) => {
-        if (!e.target.classList.contains('indicator')) return;
-        const targetIndex = dots.findIndex(dot => dot === e.target);
-        moveToSlide(targetIndex);
-    });
+        prevBtn.addEventListener('click', () => {
+            const currentIndex = slides.findIndex(s => s.classList.contains('current-slide'));
+            const prevIndex = (currentIndex - 1 + slides.length) % slides.length;
+            moveToSlide(prevIndex);
+        });
 
-    // Ajuste responsivo automático
-    window.addEventListener('resize', () => {
-        const currentSlide = track.querySelector('.current-slide');
-        track.style.transform = `translateX(-${currentSlide.offsetLeft}px)`;
-    });
+        navIndicators.addEventListener('click', (e) => {
+            if (!e.target.classList.contains('indicator')) return;
+            const targetIndex = dots.indexOf(e.target);
+            moveToSlide(targetIndex);
+        });
+    }
 });
