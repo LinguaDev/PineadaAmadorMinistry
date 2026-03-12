@@ -1,27 +1,4 @@
-/* 1. Global Setup, Variables, and Typography */
-:root {
-    /* Color Palette */
---primary-color: #003366;    /* Deep Navy Blue - Más confianza y profundidad */
-    --secondary-color: #0066cc;  /* Brighter Blue - Para enlaces importantes */
-    --accent-color: #ff9900;     /* Vivid Orange/Gold - ¡Alto impacto para el botón DONAR! */
-    
-    --text-dark: #2c2c2c;        /* Negro casi puro - Mejor legibilidad */
-    --text-light: #ffffff;       /* Blanco puro */
-    
-    --background-light: #ffffff;
-    --background-gray: #f5f5f5;  /* Gris muy suave - Mayor sensación de calidad */
-    
-    /* Nuevas Variables para Diseño Moderno */
-    --card-shadow: 0 15px 40px rgba(0, 0, 0, 0.12); /* Sombra más fuerte para efecto "flotante" */
-    --shadow-subtle: 0 6px 12px rgba(0, 0, 0, 0.08); /* Sombra sutil mejorada */
-    --border-radius: 8px; /* Bordes ligeramente más redondeados */
-    --card-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Soft, modern shadow */
-    --shadow-subtle: 0 4px 8px rgba(0, 0, 0, 0.05);
-    --border-radius: 6px;
-
-    /* Typography */
-    --font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-}
+/* donate.css — Pineda Amador Family Ministry — Donation Page */
 
 * {
     margin: 0;
@@ -29,564 +6,264 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
-    font-family: var(--font-family);
-    line-height: 1.65; 
-    color: var(--text-dark); 
-    background-color: var(--background-light);
-    font-size: 16px;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    line-height: 1.65;
+    color: #2d2d2d;
+    background: #fdfdfd;
 }
 
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Reusable layout
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 .container {
-    width: 90%;
-    max-width: 1000px;
-    margin: 0 auto;
+    width: min(90rem, 94%);
+    margin-inline: auto;
+    padding-inline: clamp(1.5rem, 4vw, 3rem);
 }
 
-section {
-    padding: 100px 0;
-    overflow: hidden;
-}
-
-/* Headings */
-h1 {
-    font-size: 2.5rem;
-    color: var(--primary-color);
-    font-weight: 800;
-}
-h2 {
-    font-size: 2rem;
-    margin-bottom: 5px;
-    color: var(--primary-color);
-    text-align: center;
-    font-weight: 700;
-}
-h3 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: var(--text-dark);
-    font-weight: 600; 
-}
-.section-subtitle {
-    display: block;
-    text-align: center;
-    color: #888;
-    margin-bottom: 40px;
-    font-style: italic;
-    font-weight: 300;
-}
-strong {
-    font-weight: 700;
-}
-
-/* 2. Links and CTA Buttons */
-a {
-    color: var(--secondary-color);
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-a:hover {
-    color: var(--primary-color);
-    text-decoration: underline;
-}
-
-.cta-button {
-    display: inline-block;
-    background: var(--primary-color);
-    color: var(--text-light) !important;
-    padding: 10px 22px;
-    border-radius: var(--border-radius);
-    font-weight: 600;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    text-transform: uppercase;
-    font-size: 0.9rem;
-    border: 2px solid var(--primary-color);
-}
-.cta-button:hover {
-    background: var(--secondary-color);
-    border-color: var(--secondary-color);
-    transform: translateY(-1px);
-}
-.cta-button.large {
-    padding: 15px 35px;
-    font-size: 1.1rem;
-    margin-top: 30px;
-}
-.donate-btn {
-    display: inline-block;
-    background: var(--accent-color); 
-    color: var(--text-dark) !important;
-    padding: 16px 40px;
-    border-radius: var(--border-radius);
-    font-size: 1.2rem;
-    font-weight: 700;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    text-transform: uppercase;
-    transition: background-color 0.3s ease, transform 0.2s ease;
-    border: none;
-}
-.donate-btn:hover {
-    background: #ffd366;
-    transform: translateY(-2px);
-}
-
-
-/* 3. Header and Navigation */
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Header
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 header {
-    background: var(--background-light);
-    padding: 20px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    background: #0f2b52;
+    color: white;
+    padding: 1.4rem 0;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.18);
     position: sticky;
     top: 0;
     z-index: 1000;
 }
+
 header .container {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
 }
+
 header h1 {
-    font-size: 1.6rem;
-    line-height: 1.2;
-}
-
-/* Desktop Nav */
-.desktop-nav ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-}
-.desktop-nav ul li {
-    margin-left: 30px;
-}
-.desktop-nav ul li a {
-    color: var(--text-dark);
-    font-weight: 500;
-    padding: 5px 0;
-    transition: color 0.3s;
-}
-.desktop-nav ul li a:hover {
-    color: var(--secondary-color);
-    text-decoration: none;
-}
-
-/* Mobile Menu (Hamburger Logic) */
-#menu-toggle {
-    display: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1010;
-}
-#menu-toggle .bar {
-    display: block;
-    width: 28px;
-    height: 3px;
-    background-color: var(--primary-color);
-    margin: 6px 0;
-    transition: all 0.3s ease;
-    border-radius: 1px;
-}
-/* 'X' Animation */
-#menu-toggle.is-active .bar:nth-child(1) {
-    transform: translateY(9px) rotate(45deg);
-}
-#menu-toggle.is-active .bar:nth-child(2) {
-    opacity: 0; 
-}
-#menu-toggle.is-active .bar:nth-child(3) {
-    transform: translateY(-9px) rotate(-45deg);
-}
-
-.mobile-nav {
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 80%;
-    max-width: 300px;
-    height: 100vh;
-    background: var(--primary-color);
-    padding-top: 100px;
-    transform: translateX(100%); 
-    transition: transform 0.4s ease-in-out;
-    z-index: 999;
-}
-.mobile-nav.open {
-    transform: translateX(0);
-}
-.mobile-nav ul {
-    list-style: none;
-    padding: 0;
-}
-.mobile-nav ul li a {
-    color: var(--text-light);
-    display: block;
-    padding: 15px 20px;
-    font-size: 1.05rem;
-    transition: background 0.3s ease;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-.mobile-nav ul li a:hover {
-    background: var(--secondary-color);
-}
-
-
-/* 4. Home Page Sections and Cards */
-
-/* Hero Section */
-.hero {
-    background-color: var(--background-gray);
-    text-align: center;
-    padding: 120px 0 100px;
-    border-bottom: 3px solid var(--secondary-color);
-}
-.hero h2 {
-    font-size: 2.8rem;
-}
-.hero .lead {
-    font-size: 1.25rem;
-    max-width: 800px; 
-    margin: 20px auto 40px;
-    font-weight: 300;
-    color: var(--text-dark);
-}
-
-/* 4.1 Reports & Videos Section (Grid Layout) */
-.reports-videos {
-    background-color: var(--background-light);
-}
-
-.reports-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    align-items: start;
-}
-
-.report-card {
-    background: var(--background-gray);
-    padding: 35px; 
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow-subtle);
-    border-left: 4px solid var(--secondary-color); 
-    transition: all 0.3s ease;
-    height: 100%;
-}
-.report-card:hover {
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
-}
-.report-card h3 {
-    margin-bottom: 15px;
-    color: var(--primary-color);
-}
-.report-card p {
-    margin-bottom: 20px;
-}
-.report-card a.read-more {
-    font-weight: 600;
-}
-
-.video-gallery {
-    padding-top: 0;
-    text-align: left;
-}
-.video-gallery h3 {
-    margin-top: 0;
-}
-
-.video-caption {
-    text-align: center;
-    font-style: italic;
-    color: #666;
-    margin-top: 15px;
-}
-
-/* Responsive IFRAME Styling (16:9 Aspect Ratio) */
-.video-placeholder {
-    padding: 0; 
-    box-shadow: none; 
-    margin-bottom: 0;
-    
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
-    height: 0;
-    overflow: hidden;
-    max-width: 100%;
-    border-radius: var(--border-radius); 
-    box-shadow: var(--shadow-subtle); 
-}
-
-.video-placeholder iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: var(--border-radius);
-}
-
-/* 4.2 About Us Section */
-.about {
-    background: var(--background-gray);
-    text-align: center;
-}
-.about .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px; 
-}
-.profile-card {
-    background: var(--background-light);
-    padding: 35px;
-    border-radius: var(--border-radius);
-    box-shadow: var(--card-shadow);
-    border-bottom: 4px solid var(--accent-color);
-}
-.profile-card p {
-    text-align: left;
-    margin-top: 15px;
-}
-.profile-card h4 {
-    color: var(--secondary-color);
-}
-.profile-img {
-    width: 130px;
-    height: 130px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 15px;
-    border: 3px solid var(--primary-color);
-}
-
-/* 4.3 Resources Section */
-.resources {
-    background-color: var(--background-light);
-}
-.resources .container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-}
-.resource-item {
-    background: var(--background-gray);
-    padding: 30px;
-    border-radius: var(--border-radius);
-    transition: all 0.3s ease;
-    text-align: center;
-    box-shadow: var(--shadow-subtle);
-}
-.resource-item:hover {
-    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
-    transform: translateY(-3px);
-}
-.resource-item h4 {
-    color: var(--primary-color);
-    margin-bottom: 8px;
-    font-size: 1.3rem;
-}
-.resource-item p {
-    margin-bottom: 15px;
-}
-.resource-link {
-    font-weight: 600;
-}
-
-/* 4.4 Donation CTA Section (Home Page) */
-.cta-donation {
-    background: var(--primary-color);
-    color: var(--text-light); 
-    text-align: center;
-    padding: 80px 0;
-}
-.cta-donation h3, .cta-donation p {
-    color: var(--text-light); 
-}
-.small-text {
-    font-size: 0.95rem;
-    margin-top: 25px;
-    opacity: 0.8;
-}
-
-
-/* 5. Donation Page Specific Styles (Modern Card Styling) */
-#donation-page {
-    /* Asegura que el fondo principal sea claro */
-    background: var(--background-light); 
-}
-
-/* CORRECCIÓN CRÍTICA: Fuerza el texto introductorio a ser oscuro en la página de donación */
-#donation-page p {
-    color: var(--text-dark) !important; 
-}
-#donation-page .lead {
-    font-size: 1.2rem;
-    font-weight: 400;
-    max-width: 900px;
-    margin: 20px auto 40px;
-}
-
-/* MODERN CARD STYLING */
-.donation-method-card {
-    background: var(--background-light); 
-    color: var(--text-dark);
-    padding: 40px;
-    border-radius: 16px; 
-    margin: 30px auto;
-    max-width: 650px;
-    
-    box-shadow: var(--card-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    text-align: left;
-}
-.donation-method-card h3 {
-    text-align: center;
-    padding-bottom: 0;
-    margin-bottom: 20px;
-    border-bottom: none; 
-    font-size: 1.8rem;
+    font-size: clamp(1.5rem, 4.8vw, 1.9rem);
     font-weight: 700;
-    color: var(--primary-color); 
+    letter-spacing: -0.02em;
 }
 
-/* Western Union Styling */
-.western-union .bold-info {
-    color: var(--secondary-color);
-    font-weight: 700;
-    font-size: 1.05rem;
-}
-/* Asegura que el texto pequeño inferior también sea oscuro */
-#donation-page small { 
-    color: var(--text-dark) !important;
-}
-
-/* PayPal Styling */
-.paypal-btn {
-    background: #00457C !important;
-    width: 100%;
-    text-align: center;
-    padding: 15px;
-    font-size: 1.1rem;
-    color: var(--text-light) !important; 
+.cta-button {
+    background: #e65100;
+    color: white;
+    padding: 0.7rem 1.5rem;
     border-radius: 8px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.22s ease;
 }
-.paypal-btn:hover {
-    background: #0077b6 !important;
+
+.cta-button:hover,
+.cta-button:focus-visible {
+    background: #d84315;
+    transform: translateY(-1.5px);
+    box-shadow: 0 6px 16px rgba(230,81,0,0.28);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Donation Section
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+#donation-page {
+    padding: clamp(4rem, 10vw, 7rem) 0 6rem;
+    background: linear-gradient(to bottom, #f8f9fc 0%, #ffffff 100%);
+}
+
+.section-title {
+    font-size: clamp(2.2rem, 6vw, 3.2rem);
+    color: #0f2b52;
+    text-align: center;
+    margin-bottom: 1.4rem;
+    font-weight: 700;
+}
+
+.lead {
+    font-size: 1.18rem;
+    max-width: 780px;
+    margin: 0 auto 3.5rem;
+    text-align: center;
+    color: #444;
+}
+
+/* Grid for the two methods */
+.donation-methods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+}
+
+.donation-method-card {
+    background: white;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    padding: 2.4rem 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.donation-method-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+}
+
+.donation-method-card h3 {
+    font-size: 1.55rem;
+    color: #0f2b52;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.8rem;
+    border-bottom: 2px solid #e8f1ff;
 }
 
 .method-explanation {
-    margin-bottom: 20px;
-    line-height: 1.6;
+    font-size: 1.05rem;
+    margin-bottom: 1.4rem;
+    color: #444;
 }
 
-/* Bloques de Información */
+.bold-info {
+    color: #c62828;          /* red for strong warning/emphasis */
+    font-weight: 600;
+}
+
 .info-block {
-    background: var(--background-gray);
-    padding: 20px;
-    border-radius: 12px;
-    margin-top: 20px;
-    border: 1px solid rgba(0, 0, 0, 0.05);
+    background: #f8f9fc;
+    padding: 1.4rem;
+    border-radius: 10px;
+    margin: 1.6rem 0;
+    font-size: 1.02rem;
 }
+
+.info-block h4 {
+    color: #0f2b52;
+    margin-bottom: 0.9rem;
+    font-size: 1.15rem;
+}
+
 .info-block p {
-    margin: 8px 0;
-    font-size: 1rem;
-    line-height: 1.4;
+    margin: 0.5rem 0;
 }
 
+.note-text {
+    font-size: 0.96rem;
+    color: #555;
+    font-style: italic;
+    margin-top: 1.8rem;
+}
 
-/* 6. Footer */
+.note-text small strong {
+    color: #0f2b52;
+}
+
+/* PayPal specific */
+.paypal .donate-btn {
+    display: inline-block;
+    background: #0070ba;               /* PayPal blue */
+    color: white;
+    padding: 1rem 2.2rem;
+    font-size: 1.18rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    margin: 1.6rem 0 2rem;
+    transition: all 0.25s ease;
+    box-shadow: 0 4px 12px rgba(0,112,186,0.18);
+}
+
+.paypal .donate-btn:hover,
+.paypal .donate-btn:focus-visible {
+    background: #005ea6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0,112,186,0.28);
+}
+
+.paypal .info-block {
+    background: #e8f4ff;
+    border: 1px solid #b3d4fc;
+}
+
+.paypal .info-block a {
+    color: #0070ba;
+    font-weight: 600;
+}
+
+.paypal .info-block a:hover {
+    text-decoration: underline;
+}
+
+/* Western Union card accent */
+.western-union h3 {
+    color: #004b8d;                    /* Western Union-ish blue */
+}
+
+.western-union .info-block {
+    border-left: 5px solid #004b8d;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Footer (consistent with main site)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
 footer {
-    background: var(--text-dark);
-    color: var(--text-light); 
+    background: #0a1e3c;
+    color: #c9d8ff;
+    padding: 3.5rem 0 2.5rem;
     text-align: center;
-    padding: 35px 0;
-    font-size: 0.95rem;
 }
+
 footer h3 {
-    color: var(--text-light); 
-    margin-bottom: 15px;
+    color: white;
+    margin-bottom: 1.4rem;
+    font-size: 1.5rem;
 }
-footer a {
-    color: var(--secondary-color);
-}
+
 footer p {
-    margin: 6px 0;
+    margin: 0.6rem 0;
 }
+
 .address-detail {
-    font-style: normal;
-    margin-bottom: 15px;
-    opacity: 0.9;
+    margin: 1.2rem 0;
 }
+
 .copy {
-    margin-top: 20px;
-    font-size: 0.85rem;
-    opacity: 0.7;
+    margin-top: 2.5rem;
+    font-size: 0.94rem;
+    opacity: 0.85;
 }
 
-
-/* 7. Media Queries for Responsiveness */
-
-/* Ensure mobile menu is hidden on large screens (FIX) */
-@media (min-width: 951px) { 
-    .mobile-nav {
-        display: none !important; 
-    }
-}
-
-@media (max-width: 950px) { 
-    /* Show mobile hamburger, hide desktop nav */
-    .desktop-nav {
-        display: none;
-    }
-    #menu-toggle {
-        display: block;
-    }
-    .mobile-nav {
-        display: block;
-    }
-}
-
-@media (max-width: 768px) {
-    .reports-grid {
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   Responsive tweaks
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+@media (max-width: 800px) {
+    .donation-methods-grid {
         grid-template-columns: 1fr;
     }
-}
 
-@media (max-width: 600px) {
-    /* Mobile Adjustments */
-    section {
-        padding: 60px 0;
-    }
-    h1 {
-        font-size: 2rem;
-    }
-    h2 {
-        font-size: 1.6rem;
-    }
-    .hero {
-        padding: 80px 0;
-    }
-    .hero .lead {
-        font-size: 1.15rem;
-    }
-    .profile-card, .resource-item, .report-card {
-        padding: 25px;
-    }
-    .about .container {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    .donate-btn {
-        padding: 14px 30px;
-        font-size: 1.05rem;
-    }
     .donation-method-card {
-        padding: 25px 20px;
-        border-radius: 12px;
+        padding: 2rem 1.6rem;
     }
-    .info-block {
-        padding: 15px;
-        border-radius: 8px;
+}
+
+@media (max-width: 500px) {
+    header .container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1.2rem;
+    }
+
+    .section-title {
+        font-size: 2.1rem;
+    }
+
+    .paypal .donate-btn {
+        width: 100%;
+        text-align: center;
     }
 }
