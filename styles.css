@@ -478,3 +478,111 @@ footer p {
     .prev { left: 8px; }
     .next { right: 8px; }
 }
+/* Mobile menu improvements */
+.mobile-nav {
+    position: fixed;
+    inset: 0;                   /* top:0 right:0 bottom:0 left:0 */
+    background: #0f2b52;
+    color: white;
+    padding: 5rem 1.5rem 2rem;
+    transform: translateX(-100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 999;
+    overflow-y: auto;           /* ← important if menu is long */
+}
+
+.mobile-nav.active {
+    transform: translateX(0);
+}
+
+/* Prevent body scroll when mobile menu is open */
+body.menu-open {
+    overflow: hidden;
+    height: 100vh;
+}
+
+/* Make sure links are easy to tap */
+.mobile-nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2.5rem;                /* more space between items */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.mobile-nav a {
+    font-size: 1.4rem;
+    font-weight: 500;
+    padding: 0.8rem 1.5rem;
+    width: 100%;
+    text-align: center;
+    border-radius: 8px;
+    transition: background 0.2s;
+}
+
+.mobile-nav a:hover,
+.mobile-nav a:focus {
+    background: rgba(255,255,255,0.12);
+}
+/* Make sure the whole carousel section never causes horizontal scroll */
+.reports-videos .container {
+    overflow: hidden;           /* ← very important on mobile */
+    padding-inline: 0;          /* remove side padding if needed */
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 100%;            /* ← force it not to exceed screen */
+    margin: 0 auto;
+    padding: 0;
+}
+
+.carousel-track-container {
+    overflow: hidden;
+    margin: 0 -1rem;            /* negative margin to compensate slide padding */
+    padding: 0 1rem;
+}
+
+.carousel-slide {
+    flex: 0 0 100%;
+    padding: 0 0.8rem;          /* smaller padding on mobile is ok */
+    width: 100%;
+    max-width: 100%;
+}
+
+.video-only-card {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+/* On very small screens reduce controls size and position */
+@media (max-width: 640px) {
+    .carousel-control {
+        width: 42px;
+        height: 42px;
+        font-size: 1.4rem;
+    }
+    
+    .prev { left: 8px; }
+    .next { right: 8px; }
+
+    /* Optional: make video cards feel less "boxed in" */
+    .video-only-card h3 {
+        font-size: 1.1rem;
+        padding: 1rem 0.8rem;
+    }
+
+    /* Remove extra side space entirely if still scrolling */
+    .carousel-track-container {
+        margin: 0;
+        padding: 0;
+    }
+    
+    .carousel-slide {
+        padding: 0;
+    }
+}

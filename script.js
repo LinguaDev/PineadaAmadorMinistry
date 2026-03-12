@@ -6,7 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     // ────────────────────────────────────────────────
     const menuToggle = document.getElementById('menu-toggle');
     const mobileNav = document.getElementById('mobile-nav');
-
+    // Add body class when menu opens (prevents scrolling behind)
+menuToggle.addEventListener('click', () => {
+    const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+    menuToggle.setAttribute('aria-expanded', !isExpanded);
+    mobileNav.classList.toggle('active');
+    document.body.classList.toggle('menu-open', !isExpanded);
+});
     if (menuToggle && mobileNav) {
         menuToggle.addEventListener('click', () => {
             const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
