@@ -6,7 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function toggleMenu() {
         mobileNav.classList.toggle('open');
-        menuToggle.classList.toggle('is-active');
+        // Ocultar/Mostrar el menú al alternar
+        if (mobileNav.classList.contains('open')) {
+            mobileNav.classList.remove('hidden');
+        } else {
+            // Se puede añadir un pequeño delay si se desea una transición de cierre
+            mobileNav.classList.add('hidden');
+        }
     }
 
     if (menuToggle) {
@@ -21,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    /* --- 2. CAROUSEL & TIME TRACKER FUNCTIONALITY --- */
+    /* --- 2. CAROUSEL FUNCTIONALITY --- */
     const track = document.getElementById('carouselTrack');
     const slides = Array.from(track.children);
     const nextButton = document.getElementById('nextBtn');
@@ -29,106 +35,59 @@ document.addEventListener('DOMContentLoaded', () => {
     const dotsNav = document.getElementById('carouselNav');
     const dots = Array.from(dotsNav.children);
 
-    // Función actualizada para buscar .video-only-card
     const updateLayout = () => {
-        if (!slides.length) return;
         const slideWidth = slides[0].getBoundingClientRect().width;
-        
         slides.forEach((slide, index) => {
             slide.style.left = slideWidth * index + 'px';
         });
-
-        const currentSlide = track.querySelector('.current-slide') || slides[0];
-        const trackContainer = track.parentElement;
-        // Ajuste: ahora se busca .video-only-card
-        trackContainer.style.height = currentSlide.querySelector('.video-only-card').offsetHeight + 'px';
     };
 
-    const moveToSlide = (track, currentSlide, targetSlide) => {
+    const moveToSlide = (targetSlide) => {
         track.style.transform = 'translateX(-' + targetSlide.style.left + ')';
+        
+        const currentSlide = track.querySelector('.current-slide');
         currentSlide.classList.remove('current-slide');
         targetSlide.classList.add('current-slide');
-        
-        const trackContainer = track.parentElement;
-        // Ajuste: ahora se busca .video-only-card
-        trackContainer.style.height = targetSlide.querySelector('.video-only-card').offsetHeight + 'px';
     };
 
-    const updateDots = (currentDot, targetDot) => {
-        if (currentDot) currentDot.classList.remove('current-indicator');
-        if (targetDot) targetDot.classList.add('current-indicator');
-    };
-
-    /* --- 3. TIME TRACKER LOGIC --- */
-    const setInitialMonth = () => {
-        const now = new Date();
-        const currentYear = now.getFullYear();
-        const currentMonth = now.getMonth(); 
-        
-        let targetIndex = 0; 
-
-        // Lógica de fechas ajustada para el nuevo número de slides (4)
-        if (currentYear === 2025) {
-            if (currentMonth === 10) targetIndex = 0; // Nov 2025
-            else if (currentMonth === 11) targetIndex = 1; // Dec 2025
-            else targetIndex = 0;
-        } else if (currentYear === 2026) {
-            if (currentMonth === 0) targetIndex = 2; // Jan 2026
-            else if (currentMonth === 1) targetIndex = 3; // Feb 2026
-            else targetIndex = 3; // Mantener en el último video si es posterior
-        } else {
-            targetIndex = 3;
-        }
-
-        const currentSlide = track.querySelector('.current-slide');
-        const targetSlide = slides[targetIndex];
+    const updateDots = (targetDot) => {
         const currentDot = dotsNav.querySelector('.current-indicator');
-        const targetDot = dots[targetIndex];
-
-        updateLayout();
-        moveToSlide(track, currentSlide, targetSlide);
-        updateDots(currentDot, targetDot);
+        currentDot.classList.remove('current-indicator');
+        targetDot.classList.add('current-indicator');
     };
 
-    setInitialMonth();
+    // Inicializar layout
+    updateLayout();
+    window.addEventListener('resize', updateLayout);
 
-    /* --- 4. NAVIGATION EVENTS --- */
+    // Eventos de botones
     nextButton.addEventListener('click', () => {
         const currentSlide = track.querySelector('.current-slide');
         const nextSlide = currentSlide.nextElementSibling;
-        const currentDot = dotsNav.querySelector('.current-indicator');
-
         if (nextSlide) {
-            const targetDot = dots[slides.indexOf(nextSlide)];
-            moveToSlide(track, currentSlide, nextSlide);
-            updateDots(currentDot, targetDot);
+            moveToSlide(nextSlide);
+            updateDots(dots[slides.indexOf(nextSlide)]);
         }
     });
 
     prevButton.addEventListener('click', () => {
         const currentSlide = track.querySelector('.current-slide');
         const prevSlide = currentSlide.previousElementSibling;
-        const currentDot = dotsNav.querySelector('.current-indicator');
-
         if (prevSlide) {
-            const targetDot = dots[slides.indexOf(prevSlide)];
-            moveToSlide(track, currentSlide, prevSlide);
-            updateDots(currentDot, targetDot);
+            moveToSlide(prevSlide);
+            updateDots(dots[slides.indexOf(prevSlide)]);
         }
     });
 
+    // Eventos de puntos de navegación
     dotsNav.addEventListener('click', e => {
         const targetDot = e.target.closest('button');
         if (!targetDot) return;
-
-        const currentSlide = track.querySelector('.current-slide');
-        const currentDot = dotsNav.querySelector('.current-indicator');
+        
         const targetIndex = dots.findIndex(dot => dot === targetDot);
         const targetSlide = slides[targetIndex];
-
-        moveToSlide(track, currentSlide, targetSlide);
-        updateDots(currentDot, targetDot);
+        
+        moveToSlide(targetSlide);
+        updateDots(targetDot);
     });
-
-    window.addEventListener('resize', updateLayout);
 });
