@@ -1,269 +1,322 @@
-/* donate.css — Pineda Amador Family Ministry — Donation Page */
+/* donate.css */
+
+/* ================================================ */
+/* Reset & Base                                     */
+/* ================================================ */
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    scroll-behavior: smooth;
+  scroll-behavior: smooth;
 }
 
 body {
-    font-family: 'Segoe UI', system-ui, sans-serif;
-    line-height: 1.65;
-    color: #2d2d2d;
-    background: #fdfdfd;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
+  color: #2d3748;
+  background: #f7fafc;
+  min-height: 100vh;
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Reusable layout
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+/* ================================================ */
+/* Layout & Container                               */
+/* ================================================ */
+
 .container {
-    width: min(90rem, 94%);
-    margin-inline: auto;
-    padding-inline: clamp(1.5rem, 4vw, 3rem);
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Header
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-header {
-    background: #0f2b52;
-    color: white;
-    padding: 1.4rem 0;
-    box-shadow: 0 3px 12px rgba(0,0,0,0.18);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+.container.narrow {
+  max-width: 780px;
 }
 
-header .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1.5rem;
+/* ================================================ */
+/* Header                                           */
+/* ================================================ */
+
+.site-header {
+  background: #1a202c;
+  color: white;
+  padding: 1.2rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
-header h1 {
-    font-size: clamp(1.5rem, 4.8vw, 1.9rem);
-    font-weight: 700;
-    letter-spacing: -0.02em;
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
-.cta-button {
-    background: #e65100;
-    color: white;
-    padding: 0.7rem 1.5rem;
-    border-radius: 8px;
-    font-weight: 600;
-    text-decoration: none;
-    transition: all 0.22s ease;
+.site-title {
+  font-size: clamp(1.5rem, 4.5vw, 1.9rem);
+  font-weight: 700;
 }
 
-.cta-button:hover,
-.cta-button:focus-visible {
-    background: #d84315;
-    transform: translateY(-1.5px);
-    box-shadow: 0 6px 16px rgba(230,81,0,0.28);
+.site-title a {
+  color: white;
+  text-decoration: none;
 }
 
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Donation Section
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-#donation-page {
-    padding: clamp(4rem, 10vw, 7rem) 0 6rem;
-    background: linear-gradient(to bottom, #f8f9fc 0%, #ffffff 100%);
+.site-title a:hover {
+  color: #a0d2ff;
+  text-decoration: underline;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  min-height: 44px;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid #cbd5e0;
+  color: white;
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: white;
+}
+
+.btn-paypal {
+  background: #0070ba;
+  color: white;
+  font-size: 1.1rem;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 112, 186, 0.25);
+}
+
+.btn-paypal:hover {
+  background: #005ea6;
+  box-shadow: 0 6px 18px rgba(0, 112, 186, 0.35);
+}
+
+/* ================================================ */
+/* Hero / Donation Section                          */
+/* ================================================ */
+
+.hero-donate {
+  padding: 4rem 0 5rem;
+  background: linear-gradient(to bottom, #edf2f7, #f7fafc);
 }
 
 .section-title {
-    font-size: clamp(2.2rem, 6vw, 3.2rem);
-    color: #0f2b52;
-    text-align: center;
-    margin-bottom: 1.4rem;
-    font-weight: 700;
+  font-size: clamp(1.9rem, 5vw, 2.6rem);
+  color: #2d3748;
+  text-align: center;
+  margin-bottom: 1.2rem;
+  font-weight: 700;
 }
 
 .lead {
-    font-size: 1.18rem;
-    max-width: 780px;
-    margin: 0 auto 3.5rem;
-    text-align: center;
-    color: #444;
+  font-size: 1.18rem;
+  text-align: center;
+  max-width: 65ch;
+  margin: 0 auto 3rem;
+  color: #4a5568;
 }
 
-/* Grid for the two methods */
-.donation-methods-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+/* Donation cards layout */
+.donation-options {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+
+/* Card base */
+.donation-card {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+  border: 1px solid #e2e8f0;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.donation-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+}
+
+.donation-card h3 {
+  background: #2d3748;
+  color: white;
+  padding: 1.3rem 1.6rem;
+  font-size: 1.4rem;
+  margin: 0;
+}
+
+.method-type {
+  background: #edf2f7;
+  color: #4a5568;
+  font-weight: 600;
+  padding: 0.6rem 1.6rem;
+  font-size: 0.95rem;
+  display: block;
+  border-bottom: 1px solid #e2e8f0;
+}
+
+/* Card content */
+.explanation,
+.recipient-info,
+.paypal-action {
+  padding: 1.6rem;
+}
+
+.explanation p {
+  margin-bottom: 1.2rem;
+}
+
+.highlight-line {
+  background: #fefcbf;
+  padding: 1rem;
+  border-radius: 8px;
+  border-left: 4px solid #d69e2e;
+  margin: 1.2rem 0;
+}
+
+.recipient-info h4 {
+  margin-bottom: 1rem;
+  color: #2d3748;
+}
+
+.recipient-info dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.6rem 1.2rem;
+}
+
+.recipient-info dt {
+  font-weight: 600;
+  color: #4a5568;
+}
+
+.recipient-info dd {
+  margin: 0;
+}
+
+.important-note {
+  background: #fff5f5;
+  border-left: 4px solid #e53e3e;
+  padding: 1.2rem 1.6rem;
+  margin: 0 1.6rem 1.6rem;
+  border-radius: 0 8px 8px 0;
+  font-size: 0.98rem;
+}
+
+.important-note a {
+  color: #c53030;
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+.paypal-action {
+  text-align: center;
+  padding-bottom: 2rem;
+}
+
+.small-link {
+  margin-top: 1rem;
+  font-size: 0.95rem;
+  color: #718096;
+}
+
+.small-link a {
+  color: #3182ce;
+}
+
+/* Footer */
+.site-footer {
+  background: #1a202c;
+  color: #cbd5e0;
+  padding: 3rem 0 2rem;
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.footer-title {
+  color: white;
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+}
+
+.site-footer address {
+  font-style: normal;
+  line-height: 1.8;
+}
+
+.site-footer a {
+  color: #a0d2ff;
+  text-decoration: none;
+}
+
+.site-footer a:hover {
+  text-decoration: underline;
+}
+
+.copyright {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+/* ================================================ */
+/* Responsive                                       */
+/* ================================================ */
+
+@media (min-width: 768px) {
+  .donation-options {
+    grid-template-columns: repeat(2, 1fr);
     gap: 2.5rem;
-    margin-top: 2rem;
+  }
+
+  .hero-donate {
+    padding: 6rem 0 7rem;
+  }
 }
 
-.donation-method-card {
-    background: white;
-    border-radius: 14px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
-    padding: 2.4rem 2rem;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2rem;
+  }
 }
 
-.donation-method-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 16px 40px rgba(0,0,0,0.12);
-}
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;
+  }
 
-.donation-method-card h3 {
-    font-size: 1.55rem;
-    color: #0f2b52;
-    margin-bottom: 1.2rem;
-    padding-bottom: 0.8rem;
-    border-bottom: 2px solid #e8f1ff;
-}
-
-.method-explanation {
+  .lead {
     font-size: 1.05rem;
-    margin-bottom: 1.4rem;
-    color: #444;
-}
+  }
 
-.bold-info {
-    color: #c62828;          /* red for strong warning/emphasis */
-    font-weight: 600;
-}
-
-.info-block {
-    background: #f8f9fc;
-    padding: 1.4rem;
-    border-radius: 10px;
-    margin: 1.6rem 0;
-    font-size: 1.02rem;
-}
-
-.info-block h4 {
-    color: #0f2b52;
-    margin-bottom: 0.9rem;
-    font-size: 1.15rem;
-}
-
-.info-block p {
-    margin: 0.5rem 0;
-}
-
-.note-text {
-    font-size: 0.96rem;
-    color: #555;
-    font-style: italic;
-    margin-top: 1.8rem;
-}
-
-.note-text small strong {
-    color: #0f2b52;
-}
-
-/* PayPal specific */
-.paypal .donate-btn {
-    display: inline-block;
-    background: #0070ba;               /* PayPal blue */
-    color: white;
-    padding: 1rem 2.2rem;
-    font-size: 1.18rem;
-    font-weight: 600;
-    border-radius: 8px;
-    text-decoration: none;
-    margin: 1.6rem 0 2rem;
-    transition: all 0.25s ease;
-    box-shadow: 0 4px 12px rgba(0,112,186,0.18);
-}
-
-.paypal .donate-btn:hover,
-.paypal .donate-btn:focus-visible {
-    background: #005ea6;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(0,112,186,0.28);
-}
-
-.paypal .info-block {
-    background: #e8f4ff;
-    border: 1px solid #b3d4fc;
-}
-
-.paypal .info-block a {
-    color: #0070ba;
-    font-weight: 600;
-}
-
-.paypal .info-block a:hover {
-    text-decoration: underline;
-}
-
-/* Western Union card accent */
-.western-union h3 {
-    color: #004b8d;                    /* Western Union-ish blue */
-}
-
-.western-union .info-block {
-    border-left: 5px solid #004b8d;
-}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Footer (consistent with main site)
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-footer {
-    background: #0a1e3c;
-    color: #c9d8ff;
-    padding: 3.5rem 0 2.5rem;
-    text-align: center;
-}
-
-footer h3 {
-    color: white;
-    margin-bottom: 1.4rem;
-    font-size: 1.5rem;
-}
-
-footer p {
-    margin: 0.6rem 0;
-}
-
-.address-detail {
-    margin: 1.2rem 0;
-}
-
-.copy {
-    margin-top: 2.5rem;
-    font-size: 0.94rem;
-    opacity: 0.85;
-}
-
-/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-   Responsive tweaks
-━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-@media (max-width: 800px) {
-    .donation-methods-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .donation-method-card {
-        padding: 2rem 1.6rem;
-    }
-}
-
-@media (max-width: 500px) {
-    header .container {
-        flex-direction: column;
-        text-align: center;
-        gap: 1.2rem;
-    }
-
-    .section-title {
-        font-size: 2.1rem;
-    }
-
-    .paypal .donate-btn {
-        width: 100%;
-        text-align: center;
-    }
+  .btn-paypal {
+    padding: 0.9rem 1.6rem;
+    font-size: 1rem;
+  }
 }

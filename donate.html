@@ -1,85 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Donate - Pineda Amador Family Ministry</title>
-    <link rel="stylesheet" href="donate.css"> 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Donate – Pineda Amador Family Ministry</title>
+  <link rel="stylesheet" href="donate.css">
 </head>
 <body>
 
-    <header>
-        <div class="container">
-            <h1>Pineda Amador Family Ministry</h1>
-            <a href="index.html" class="cta-button">Back to Home</a>
-        </div>
-    </header>
+  <header class="site-header">
+    <div class="container">
+      <div class="header-content">
+        <h1 class="site-title">
+          <a href="index.html">Pineda Amador Family Ministry</a>
+        </h1>
+        <a href="index.html" class="btn btn-outline back-home">
+          ← Back to Home
+        </a>
+      </div>
+    </div>
+  </header>
 
-    <main>
-        <section id="donation-page"> 
-            <div class="container">
-                
-                <h2 class="section-title">Support the Pineda Amador Mission</h2>
-                <p class="lead">
-                    Your support is vital for us to continue serving in León, Nicaragua. To ensure every dollar reaches the appropriate area of work, we have designated two donation channels with specific purposes.
-                </p>
+  <main>
+    <section class="hero-donate" aria-labelledby="donate-title">
+      <div class="container narrow">
+        <h2 id="donate-title" class="section-title">Support the Ministry</h2>
+        <p class="lead">
+          Your generous support allows us to continue sharing the Gospel, teaching children, and serving families in León, Nicaragua.
+          We have created two clear channels so your gift goes exactly where it is most needed.
+        </p>
 
-                <div class="donation-methods-grid"> 
+        <div class="donation-options" role="region" aria-label="Donation methods">
+          
+          <!-- Western Union Card -->
+          <article class="donation-card direct-support">
+            <h3>Direct Ministry Support</h3>
+            <p class="method-type">via Western Union</p>
 
-                    <div class="donation-method-card western-union">
-                        <h3>Direct Ministry Support (Western Union)</h3>
-                        
-                        <p class="method-explanation">
-                            Since we <strong>currently do not have a Nicaraguan bank account</strong> capable of receiving international transfers easily, the most direct and secure way to support us monthly is through Western Union.
-                        </p>
-                        <p class="method-explanation">
-                            <strong class="bold-info">This method is reserved for DIRECT MINISTRY SUPPORT</strong> (family needs, transportation, children's ministry materials, etc.).
-                        </p>
-
-                        <div class="info-block">
-                            <h4>Recipient Information:</h4>
-                            <p><strong>Full Name:</strong> Juan Pineda Canales</p>
-                            <p><strong>Phone:</strong> +505 5751 4440</p>
-                            <p><strong>Identification Document (ID):</strong> 321-220391-0001G</p>
-                            <p><strong>Location:</strong> León, Nicaragua</p>
-                        </div>
-
-                        <p class="note-text">
-                            <small>
-                                *Once the donation is sent, please email the Money Transfer Control Number (MTCN) and the amount to <strong>JUANCANALES5019@GMAIL.COM</strong>.*
-                            </small>
-                        </p>
-                    </div>
-
-                    <div class="donation-method-card paypal">
-                        <h3>Web Tools & Future Hosting (PayPal)</h3>
-                        <p class="method-explanation">
-                            We use PayPal <strong>exclusively</strong> to cover costs related to the ministry's online infrastructure, such as purchasing a future web domain, hosting services, and essential digital tools.
-                        </p>
-                        
-                        <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank" rel="noopener noreferrer" class="donate-btn paypal-btn">
-                            Pay for Web Expenses via PayPal
-                        </a>
-
-                        <div class="info-block">
-                            <p><strong>PayPal Link:</strong> <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI" target="_blank">paypal.me/JOHNJPC</a></p>
-                        </div>
-                    </div>
-                
-                </div>
+            <div class="explanation">
+              <p>
+                Because we currently do not have a Nicaraguan bank account suitable for easy international transfers,
+                <strong>Western Union</strong> is the most direct, fast and secure way to support the ongoing work of the ministry.
+              </p>
+              <p class="highlight-line">
+                <strong>This channel is used exclusively for:</strong><br>
+                family living expenses • transportation • children's ministry materials • local outreach
+              </p>
             </div>
-        </section>
 
-    </main>
+            <div class="recipient-info">
+              <h4>Recipient Details</h4>
+              <dl>
+                <dt>Full name</dt>
+                <dd>Juan Pineda Canales</dd>
 
-    <footer id="contact">
-        <div class="container">
-            <h3>Contact Us</h3>
-            <p><strong>Email:</strong> JUANCANALES5019@GMAIL.COM</p>
-            <p class="address-detail">León, Nicaragua | Del Restaurante Los Pescaditos, 1 Cuadra al Oeste.</p>
-            <p class="copy">Pineda Amador Family Ministry &copy; 2025</p>
+                <dt>Phone</dt>
+                <dd>+505 5751 4440</dd>
+
+                <dt>Cédula / ID</dt>
+                <dd>321-220391-0001G</dd>
+
+                <dt>City</dt>
+                <dd>León, Nicaragua</dd>
+              </dl>
+            </div>
+
+            <p class="important-note">
+              <strong>After sending:</strong> please email the <strong>MTCN</strong> (Money Transfer Control Number) and amount to
+              <a href="mailto:JUANCANALES5019@GMAIL.COM">JUANCANALES5019@GMAIL.COM</a>
+            </p>
+          </article>
+
+          <!-- PayPal Card -->
+          <article class="donation-card online-infrastructure">
+            <h3>Web & Digital Ministry Support</h3>
+            <p class="method-type">via PayPal</p>
+
+            <div class="explanation">
+              <p>
+                This channel is used <strong>exclusively</strong> to cover online ministry expenses:
+              </p>
+              <ul>
+                <li>Domain name renewal</li>
+                <li>Website hosting</li>
+                <li>Digital tools for teaching & communication</li>
+                <li>Future improvements to online outreach</li>
+              </ul>
+            </div>
+
+            <div class="paypal-action">
+              <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI"
+                 target="_blank" rel="noopener noreferrer"
+                 class="btn btn-paypal">
+                Donate via PayPal →
+              </a>
+              <p class="small-link">
+                or go to <a href="https://paypal.me/JOHNJPC" target="_blank" rel="noopener">paypal.me/JOHNJPC</a>
+              </p>
+            </div>
+          </article>
+
         </div>
-    </footer>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <h2 class="footer-title">Contact Us</h2>
+      <address>
+        <p><strong>Email:</strong> <a href="mailto:JUANCANALES5019@GMAIL.COM">JUANCANALES5019@GMAIL.COM</a></p>
+        <p><strong>Location:</strong> León, Nicaragua</p>
+        <p>Del Restaurante Los Pescaditos, 1 Cuadra al Oeste</p>
+      </address>
+      <p class="copyright">
+        © 2025–2026 Pineda Amador Family Ministry
+      </p>
+    </div>
+  </footer>
 
 </body>
 </html>
