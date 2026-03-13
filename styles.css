@@ -1,4 +1,4 @@
-/* styles.css - Updated version with better small-device / tablet experience */
+/* styles.css - Updated with correct hamburger visibility */
 
 /* ================ */
 /*    RESET + BASE  */
@@ -95,9 +95,9 @@ h1 {
     font-weight: 700;
 }
 
-/* Hamburger */
+/* Hamburger - visible on mobile/tablet, hidden on desktop */
 .hamburger {
-    display: none;
+    display: flex;
     flex-direction: column;
     justify-content: space-between;
     width: 32px;
@@ -127,7 +127,7 @@ h1 {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* Desktop nav */
+/* Desktop nav - hidden on mobile, visible on large screens */
 .nav-desktop {
     display: none;
 }
@@ -137,6 +137,8 @@ h1 {
     list-style: none;
     gap: 1.8rem;
     align-items: center;
+    margin: 0;
+    padding: 0;
 }
 
 .nav-list a {
@@ -153,12 +155,13 @@ h1 {
 .nav-cta {
     background: #ff6b35;
     padding: 0.7rem 1.4rem;
+    border-radius: 6px;
 }
 
 /* Mobile menu */
 .nav-mobile {
     position: fixed;
-    inset: 0 0 0 25%;               /* narrower sidebar on mobile */
+    inset: 0 0 0 25%;
     background: #0d1b2a;
     color: white;
     transform: translateX(100%);
@@ -191,11 +194,21 @@ h1 {
     flex-direction: column;
     gap: 1.8rem;
     font-size: 1.3rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 /* No scroll when menu open */
 body.menu-open {
     overflow: hidden;
+}
+
+/* Hide mobile menu completely on desktop */
+@media (min-width: 940px) {
+    .nav-mobile {
+        display: none;
+    }
 }
 
 /* ================ */
@@ -362,52 +375,24 @@ footer a:hover {
 }
 
 /* ================================================ */
-/*   MEDIA QUERIES - delayed multi-column layout    */
+/*   MEDIA QUERIES                                  */
 /* ================================================ */
 
-/* Tablets & small-mid devices (still mostly single column) */
-@media (min-width: 768px) {
+/* Mobile / small tablet: hamburger visible, desktop nav hidden */
+@media (max-width: 939px) {
+    /* already set in base: hamburger display: flex; nav-desktop display: none; */
+}
+
+/* Large tablet / desktop: hide hamburger, show desktop nav, single → multi column */
+@media (min-width: 940px) {
 
     .hamburger {
-        display: flex;
+        display: none;
     }
 
     .nav-desktop {
         display: block;
     }
-
-    .nav-list {
-        gap: 1.6rem;
-    }
-
-    .section {
-        padding: 4.5rem 0;
-    }
-
-    .hero {
-        padding: 9rem 0 7rem;
-    }
-
-    /* Keep 1 column longer for better tablet experience */
-    .video-grid,
-    .team-grid,
-    .resources-grid {
-        grid-template-columns: 1fr;
-        gap: 3rem;
-    }
-
-    .profile-card,
-    .resource-card {
-        padding: 2rem 1.6rem;
-    }
-
-    .lead {
-        font-size: 1.25rem;
-    }
-}
-
-/* Start 2 columns only on larger tablets / small laptops */
-@media (min-width: 940px) {
 
     .video-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -429,9 +414,17 @@ footer a:hover {
         width: 180px;
         height: 180px;
     }
+
+    .section {
+        padding: 5rem 0;
+    }
+
+    .hero {
+        padding: 10rem 0 8rem;
+    }
 }
 
-/* Large screens - optional 3-column resources */
+/* Extra large screens */
 @media (min-width: 1200px) {
 
     .container {
@@ -451,12 +444,8 @@ footer a:hover {
     }
 }
 
-/* Extra comfort on very small screens */
+/* Small screen comfort */
 @media (max-width: 480px) {
-    .container {
-        padding: 0 1.2rem;
-    }
-
     .bible-passage {
         font-size: 1.15rem;
         padding: 1.2rem;
