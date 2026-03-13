@@ -9,50 +9,55 @@
 <body>
 
     <header id="home">
-        <div class="container">
+        <div class="container header-container">
             <h1>Pineda Amador Family Ministry</h1>
-            
-            <button id="menu-toggle" aria-label="Toggle navigation">
-                <div class="bar"></div>
-                <div class="bar"></div>
-                <div class="bar"></div>
+
+            <button id="menu-toggle" class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
 
-            <nav id="desktop-nav" class="desktop-nav">
-                <ul>
+            <nav class="nav-desktop">
+                <ul class="nav-list">
                     <li><a href="#home">Home</a></li>
                     <li><a href="#support-mission">Mission</a></li>
                     <li><a href="#latest-reports">NewsLetter</a></li>
                     <li><a href="#about-us">About Us</a></li>
                     <li><a href="#resources">Resources</a></li>
                     <li><a href="#contact">Contact</a></li>
-                    <li><a href="donate.html" class="cta-button">Support Today!</a></li>
+                    <li><a href="donate.html" class="cta-button nav-cta">Support Today!</a></li>
                 </ul>
             </nav>
         </div>
-    </header>
 
-    <nav id="mobile-nav" class="mobile-nav hidden">
-        <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#support-mission">Mission</a></li>
-            <li><a href="#latest-reports">Reports</a></li>
-            <li><a href="#about-us">About Us</a></li>
-            <li><a href="#resources">Resources</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="donate.html" class="cta-button">Support Today!</a></li>
-        </ul>
-    </nav>
+        <!-- Mobile menu (slides in from side) -->
+        <nav id="mobile-menu" class="nav-mobile" aria-hidden="true">
+            <div class="mobile-menu-header">
+                <h2>Menu</h2>
+                <button id="close-menu" aria-label="Close menu">×</button>
+            </div>
+            <ul class="nav-list mobile-nav-list">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#support-mission">Mission</a></li>
+                <li><a href="#latest-reports">Reports</a></li>
+                <li><a href="#about-us">About Us</a></li>
+                <li><a href="#resources">Resources</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li><a href="donate.html" class="cta-button nav-cta">Support Today!</a></li>
+            </ul>
+        </nav>
+    </header>
 
     <main>
         <section id="support-mission" class="hero">
             <div class="container">
                 <h2>How Shall They Hear?</h2>
                 
-                <p class="bible-passage">
+                <blockquote class="bible-passage">
                     "How then shall they call on Him in whom they have not believed? And how shall they believe in Him of whom they have not heard? And how shall they hear without a preacher? <strong>And how shall they preach unless they are sent?</strong> As it is written: 'How beautiful are the feet of those who preach the gospel of peace, who bring glad tidings of good things!'"
-                    <br><span>— Romans 10:14-15</span>
-                </p>
+                    <footer>— Romans 10:14-15</footer>
+                </blockquote>
 
                 <p class="lead">
                     Every mission requires a sender. Your support provides the means for the Gospel to reach those who have not yet heard. 
@@ -65,121 +70,107 @@
             </div>
         </section>
 
-        <section id="latest-reports" class="reports-videos">
+        <section id="latest-reports" class="section videos-section">
             <div class="container">
                 <h2>Featured Ministry Videos</h2>
-                <span class="section-subtitle">A look into our mission and activities from <strong>November 2025</strong> through <strong>October 2026</strong>.</span>
+                <p class="section-subtitle">
+                    A look into our mission and activities from <strong>November 2025</strong> through <strong>October 2026</strong>.
+                </p>
 
-                <div class="carousel-container">
-                    <button class="carousel-control prev" id="prevBtn" aria-label="Previous Video">&#10094;</button>
-                    <button class="carousel-control next" id="nextBtn" aria-label="Next Video">&#10095;</button>
+                <div class="video-grid">
+                    <article class="video-card">
+                        <h3>Memories from the Past</h3>
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/rYyFz2g6wJ4" title="November Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </article>
 
-                    <div class="carousel-track-container">
-                        <ul class="carousel-track" id="carouselTrack">
-                            <li class="carousel-slide current-slide">
-                                <div class="video-only-card">
-                                    <h3>Memories from the Past</h3>
-                                    <div class="video-placeholder">
-                                        <iframe src="https://www.youtube.com/embed/rYyFz2g6wJ4" title="November Video" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="carousel-slide">
-                                <div class="video-only-card">
-                                    <h3>December 2025: Year-End Celebration</h3>
-                                    <div class="video-placeholder">
-                                        <iframe src="https://www.youtube.com/embed/kHrk1uitAC0" title="December Video" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="carousel-slide">
-                                <div class="video-only-card">
-                                    <h3>January 2026: Learning about Moses</h3>
-                                    <div class="video-placeholder">
-                                        <iframe src="https://www.youtube.com/embed/rCqZbGcMUb0" title="January Video" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="carousel-slide">
-                                <div class="video-only-card">
-                                    <h3>February 2026: Special Visit</h3>
-                                    <div class="video-placeholder">
-                                        <iframe src="https://www.youtube.com/embed/b79WGHp4KfQ" title="February Video" allowfullscreen></iframe>
-                                    </div>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
+                    <article class="video-card">
+                        <h3>December 2025: Year-End Celebration</h3>
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/kHrk1uitAC0" title="December Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </article>
 
-                    <div class="carousel-nav" id="carouselNav">
-                        <button class="indicator current-indicator"></button>
-                        <button class="indicator"></button>
-                        <button class="indicator"></button>
-                        <button class="indicator"></button>
-                    </div>
+                    <article class="video-card">
+                        <h3>January 2026: Learning about Moses</h3>
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/rCqZbGcMUb0" title="January Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </article>
+
+                    <article class="video-card">
+                        <h3>February 2026: Special Visit</h3>
+                        <div class="video-wrapper">
+                            <iframe src="https://www.youtube.com/embed/b79WGHp4KfQ" title="February Video" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        </div>
+                    </article>
                 </div>
             </div>
         </section>
 
-        <section id="about-us" class="about">
+        <section id="about-us" class="section about">
             <div class="container">
-                <h3>About the Pineda Amador Family Ministry</h3>
-                <div class="about-grid">
+                <h2>About the Pineda Amador Family Ministry</h2>
+                <div class="team-grid">
                     <div class="profile-card">
-                        <h4>Juan Pineda</h4>
-                        <img src="JUAN.png" alt="Photo of Brother Pineda" class="profile-img">
+                        <h3>Juan Pineda</h3>
+                        <img src="JUAN.png" alt="Brother Juan Pineda" class="profile-img" loading="lazy">
                         <p>I was baptized into Christ in 2011. Currently pursuing a Bachelor's degree in Theology at Sunset International Bible Institute, preparing to serve more effectively in the Kingdom.</p>
                     </div>
                     <div class="profile-card">
-                        <h4>Ana Amador</h4>
-                        <img src="ANA.jpeg" alt="Photo of Sister Amador" class="profile-img">
+                        <h3>Ana Amador</h3>
+                        <img src="ANA.jpeg" alt="Sister Ana Amador" class="profile-img" loading="lazy">
                         <p>Daughter of Ezequiel Amador. Committed to children's ministry since age 12. My vision is to help children grow in faith and understanding of God’s Word.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="resources" class="resources">
+        <section id="resources" class="section resources">
             <div class="container">
-                <h3>Teaching and Edification Resources</h3>
-                <div class="resource-grid">
-                    <div class="resource-item">
-                        <h4>Recent Sermons</h4>
+                <h2>Teaching and Edification Resources</h2>
+                <div class="resources-grid">
+                    <div class="resource-card">
+                        <h3>Recent Sermons</h3>
                         <p>Access sermons, Bible studies, and conferences from our local ministry.</p>
-                        <a href="src/sermons.html" class="resource-link">View Collection</a>
+                        <a href="src/sermons.html" class="resource-link">View Collection →</a>
                     </div>
-                    <div class="resource-item highlight-resource">
-                        <h4>UKBI Institute Library</h4>
+                    <div class="resource-card highlight">
+                        <h3>UKBI Institute Library</h3>
                         <p>Exclusive collection of study guides and books.</p>
-                        <a href="src/ukbi_library.html" class="resource-link">Access Library</a>
+                        <a href="src/ukbi_library.html" class="resource-link">Access Library →</a>
                     </div>
-                    <div class="resource-item">
-                        <h4>Children's Ministry Material</h4>
+                    <div class="resource-card">
+                        <h3>Children's Ministry Material</h3>
                         <p>Lessons, activities, and guides for parents and teachers.</p>
-                        <a href="#" class="resource-link">Download Resources</a>
+                        <a href="#" class="resource-link">Download Resources →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id="donations" class="cta-donation">
+        <section class="section cta-section">
             <div class="container">
-                <h3>Join the Mission</h3>
+                <h2>Join the Mission</h2>
                 <p>Every donation allows us to focus on preaching and children's ministry.</p>
-                <a href="donate.html" target="_blank" rel="noopener noreferrer" class="donate-btn">Support Us</a>
-                <p class="small-text">We thank you in advance for your generosity in Christ.</p>
+                <a href="donate.html" target="_blank" rel="noopener noreferrer" class="cta-button donate-btn large">Support Us</a>
+                <p class="small-notice">We thank you in advance for your generosity in Christ.</p>
             </div>
         </section>
     </main>
 
     <footer id="contact">
         <div class="container">
-            <h3>Contact Us</h3>
-            <p><strong>Email:</strong> JUANCANALES5019@GMAIL.COM</p>
-            <p><strong>Phone:</strong> +505 5751 4440</p>
-            <p><strong>Location:</strong> León, Nicaragua</p>
-            <p class="address-detail">Del Restaurante Los Pescaditos, 1 Cuadra al Oeste.</p>
-            <p class="copy">Pineda Amador Family Ministry &copy; 2026 | Developed with gratitude and faith.</p>
+            <h2>Contact Us</h2>
+            <address>
+                <p><strong>Email:</strong> <a href="mailto:JUANCANALES5019@GMAIL.COM">JUANCANALES5019@GMAIL.COM</a></p>
+                <p><strong>Phone:</strong> <a href="tel:+50557514440">+505 5751 4440</a></p>
+                <p><strong>Location:</strong> León, Nicaragua</p>
+                <p class="address-detail">Del Restaurante Los Pescaditos, 1 Cuadra al Oeste.</p>
+            </address>
+            <p class="copyright">Pineda Amador Family Ministry © 2026</p>
+            <p class="credit">Developed with gratitude and faith.</p>
         </div>
     </footer>
 
