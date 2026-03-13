@@ -1,4 +1,4 @@
-/* styles.css */
+/* styles.css - Updated version with better small-device / tablet experience */
 
 /* ================ */
 /*    RESET + BASE  */
@@ -44,10 +44,13 @@ h3 { font-size: clamp(1.4rem, 4vw, 1.9rem); }
     max-width: 65ch;
 }
 
-/* Buttons */
+/* Buttons / Links */
 .cta-button,
-.donate-btn {
-    display: inline-block;
+.donate-btn,
+.resource-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     padding: 0.9rem 1.8rem;
     background: #0066cc;
     color: white;
@@ -55,6 +58,7 @@ h3 { font-size: clamp(1.4rem, 4vw, 1.9rem); }
     border-radius: 6px;
     font-weight: 600;
     transition: all 0.25s ease;
+    min-height: 48px;           /* better touch target on mobile */
 }
 
 .cta-button:hover,
@@ -154,13 +158,13 @@ h1 {
 /* Mobile menu */
 .nav-mobile {
     position: fixed;
-    inset: 0 0 0 30%;
+    inset: 0 0 0 25%;               /* narrower sidebar on mobile */
     background: #0d1b2a;
     color: white;
     transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     z-index: 999;
-    padding: 5rem 2rem 2rem;
+    padding: 5rem 1.8rem 2rem;
     overflow-y: auto;
 }
 
@@ -179,7 +183,7 @@ h1 {
     background: none;
     border: none;
     color: white;
-    font-size: 2.5rem;
+    font-size: 2.8rem;
     cursor: pointer;
 }
 
@@ -189,7 +193,7 @@ h1 {
     font-size: 1.3rem;
 }
 
-/* Body no-scroll when menu open */
+/* No scroll when menu open */
 body.menu-open {
     overflow: hidden;
 }
@@ -230,11 +234,11 @@ section {
     font-size: 1.1rem;
 }
 
-/* Video grid */
+/* Video section */
 .video-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2.8rem;
 }
 
 .video-card {
@@ -242,11 +246,13 @@ section {
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    min-width: 0;
 }
 
 .video-card h3 {
     padding: 1.2rem 1.4rem 0.6rem;
     background: #f0f4f8;
+    font-size: 1.35rem;
 }
 
 .video-wrapper {
@@ -264,19 +270,20 @@ section {
     height: 100%;
 }
 
-/* About - team grid */
+/* About - team */
 .team-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 2.5rem;
+    gap: 2.8rem;
 }
 
 .profile-card {
     background: white;
-    padding: 1.8rem;
+    padding: 1.8rem 1.4rem;
     border-radius: 10px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.07);
     text-align: center;
+    min-width: 0;
 }
 
 .profile-img {
@@ -288,18 +295,19 @@ section {
     border: 4px solid #e0e7ff;
 }
 
-/* Resources grid */
+/* Resources */
 .resources-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 1.8rem;
+    gap: 2rem;
 }
 
 .resource-card {
     background: white;
-    padding: 1.8rem;
+    padding: 1.8rem 1.4rem;
     border-radius: 10px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+    min-width: 0;
 }
 
 .resource-card.highlight {
@@ -308,11 +316,9 @@ section {
 }
 
 .resource-link {
-    display: inline-block;
     margin-top: 1rem;
     color: #0066cc;
     font-weight: 600;
-    text-decoration: none;
 }
 
 .resource-link:hover {
@@ -355,11 +361,11 @@ footer a:hover {
     opacity: 0.8;
 }
 
-/* ================ */
-/*   MEDIA QUERIES  */
-/* ================ */
+/* ================================================ */
+/*   MEDIA QUERIES - delayed multi-column layout    */
+/* ================================================ */
 
-/* Tablets & up */
+/* Tablets & small-mid devices (still mostly single column) */
 @media (min-width: 768px) {
 
     .hamburger {
@@ -371,42 +377,92 @@ footer a:hover {
     }
 
     .nav-list {
-        gap: 2rem;
+        gap: 1.6rem;
     }
 
-    .video-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .team-grid,
-    .resources-grid {
-        grid-template-columns: repeat(2, 1fr);
+    .section {
+        padding: 4.5rem 0;
     }
 
     .hero {
-        padding: 10rem 0 8rem;
+        padding: 9rem 0 7rem;
     }
-}
 
-/* Desktop large */
-@media (min-width: 1024px) {
-
-    .video-grid {
-        grid-template-columns: repeat(2, 1fr);
+    /* Keep 1 column longer for better tablet experience */
+    .video-grid,
+    .team-grid,
+    .resources-grid {
+        grid-template-columns: 1fr;
         gap: 3rem;
     }
 
+    .profile-card,
+    .resource-card {
+        padding: 2rem 1.6rem;
+    }
+
+    .lead {
+        font-size: 1.25rem;
+    }
+}
+
+/* Start 2 columns only on larger tablets / small laptops */
+@media (min-width: 940px) {
+
+    .video-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem 3rem;
+    }
+
     .team-grid {
-        grid-template-columns: repeat(2, minmax(0, 400px));
+        grid-template-columns: repeat(2, 1fr);
+        gap: 3.5rem;
         justify-content: center;
-        gap: 4rem;
+    }
+
+    .resources-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2.5rem;
+    }
+
+    .profile-img {
+        width: 180px;
+        height: 180px;
+    }
+}
+
+/* Large screens - optional 3-column resources */
+@media (min-width: 1200px) {
+
+    .container {
+        padding: 0 2rem;
     }
 
     .resources-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
+    .video-grid {
+        gap: 3rem 4rem;
+    }
+
     .hero {
         background-attachment: fixed;
+    }
+}
+
+/* Extra comfort on very small screens */
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1.2rem;
+    }
+
+    .bible-passage {
+        font-size: 1.15rem;
+        padding: 1.2rem;
+    }
+
+    .video-card h3 {
+        font-size: 1.3rem;
     }
 }
