@@ -1,142 +1,323 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!--  created with Free Online Sitemap Generator www.xml-sitemaps.com  -->
 <url>
-  <loc>https://pinedaamadorministry.web.app/</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>1.00</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>1.00</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/donate.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/donate.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/reports/November2025.pdf</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/sermons.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/reports/December2025.pdf</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/ukbi_library.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.80</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/reports/January2026.pdf</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/index.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/reports/February2026.pdf</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/feature/The_power_of_forgiveness.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/sermons.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/faith/sermon_living_water.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/ukbi_library.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.80</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/faith/sermon_forgiveness.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/index.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/faith/sermon_grace.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/feature/The_power_of_forgiveness.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/faith/sermon_salvation.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/faith/sermon_living_water.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/disciple/sermon_call_to_serve.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/faith/sermon_forgiveness.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/disciple/sermon_devotion.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/faith/sermon_grace.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/disciple/sermon_spirit_walk.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/faith/sermon_salvation.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/disciple/sermon_humility.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/disciple/sermon_call_to_serve.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/family/sermon_family_unit.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/disciple/sermon_devotion.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/family/sermon_covenant.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/disciple/sermon_spirit_walk.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/family/sermon_raising_children.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/disciple/sermon_humility.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/history/sermon_prophecy.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/family/sermon_family_unit.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/history/sermon_original_intent.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/family/sermon_covenant.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/history/sermon_biblical_timeline.html</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/family/sermon_raising_children.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Old%20Testament/Daniel.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/history/sermon_prophecy.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Old%20Testament/Wisdom%20Literature.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/history/sermon_original_intent.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Old%20Testament/Minor%20Prophets.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/history/sermon_biblical_timeline.html</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Old%20Testament/Jeremiah.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/UKBI/BOOKS/Ministery/Apologetics%202.pdf</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Old%20Testament/Psalms.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
 <url>
-  <loc>https://pinedaamadorministry.web.app/src/UKBI/BOOKS/New%20Testament/Acts.pdf</loc>
-  <lastmod>2026-02-28T19:46:24+00:00</lastmod>
-  <priority>0.64</priority>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Old%20Testament/Isaiah.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
 </url>
-
-
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Doctrine/Christ%20and%20the%20Church.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Doctrine/The%20Christian%20Home.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Doctrine/Redemption%20Is.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Doctrine/The%20Power%20of%20Biblical%20Thinking.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Doctrine/Shepherds%20Among%20the%20Sheep.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Doctrine/Life%20of%20Christ.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Doctrine/Levitical%20Sacrificial%20System.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Ministry/Apologetics%202.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Ministry/Spiritual%20Giftedness.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Ministry/Spiritual%20Living%20for%20Ministers.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Ministry/The%20Case%20for%20Historic%20Christianity.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Ministry/Bible%20History%20I.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Ministry/Bible%20History%20II.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Ministry/Biblical%20Interpretation.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Ministry/Excellence%20in%20Leadership.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Ministry/Introduction%20to%20Christian%20Counseling.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Ministry/Biblical%20Theology%20of%20Missions.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Ministry/Leader%20Strong%20Churches.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/Acts.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/Colossians%20and%20Philemon.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/Ephesians.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/Epistles%20of%20John.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/Epistles%20of%20Peter.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/First%20Corinthians.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/Hebrews.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/History%20of%20Church%20in%20Acts.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/I%20&%20II%20Thessalonians.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/James.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/John's%20Gospel.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/Philippians.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/Revelation.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/Romans.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/Romans%20II.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/Second%20Corinthians.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/New%20Testament/Timothy%20&%20Titus.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Study%20Guides/SG_1_Corinthians.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Study%20Guides/SG_2_Corinthians.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
+<url>
+<loc>https://linguadev.github.io/PineadaAmadorMinistry/src/UKBI/BOOKS/Study%20Guides/SG_Acts.pdf</loc>
+<lastmod>2026-03-13T16:39:48+00:00</lastmod>
+<priority>0.64</priority>
+</url>
 </urlset>
