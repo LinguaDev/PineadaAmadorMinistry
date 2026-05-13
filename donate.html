@@ -1,127 +1,233 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Donate – Pineda Amador Family Ministry</title>
-  <link rel="stylesheet" href="donate.css">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Donate – Support Pineda Amador Family Ministry | Nicaragua</title>
+    <meta name="description" content="Support the Pineda Amador Family Ministry in Nicaragua. Donate via Western Union for family needs and children's ministry, or via PayPal for digital outreach and theological training." />
+    <meta name="keywords" content="Pineda Amador, donate, support, ministry, Nicaragua, Western Union, PayPal, theology, children's ministry" />
+    <meta name="author" content="Pineda Amador Family Ministry" />
+    <meta name="robots" content="index, follow" />
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pinedaamador.org/donate.html" />
+    <meta property="og:title" content="Support Pineda Amador Family Ministry" />
+    <meta property="og:description" content="Help us preach the Gospel in Nicaragua through direct family support or digital outreach." />
+    <meta property="og:image" content="https://pinedaamador.org/og-donate.jpg" /> <!-- Replace if available -->
+    
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Support Pineda Amador Family Ministry" />
+    <meta name="twitter:description" content="Your gifts enable preaching, children's ministry, and theological training in Nicaragua." />
+    
+    <link rel="canonical" href="https://pinedaamador.org/donate.html" />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Additional donate-specific styles if needed -->
+    <style>
+        /* Donate page specific overrides */
+        .hero-donate {
+            padding: 4rem 0;
+        }
+        .narrow {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .donation-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .donation-card {
+            background: white;
+            border-radius: 24px;
+            padding: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+            transition: transform 0.2s;
+        }
+        .donation-card:hover {
+            transform: translateY(-5px);
+        }
+        .donation-card h3 {
+            margin-top: 0;
+            color: #0a2b2c;
+        }
+        .method-type {
+            font-size: 0.9rem;
+            color: #e67e22;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        .explanation, .recipient-info {
+            margin: 1.5rem 0;
+        }
+        .recipient-info h4 {
+            margin-bottom: 0.5rem;
+        }
+        .recipient-info dl {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 0.5rem 1rem;
+            margin: 0;
+        }
+        .recipient-info dt {
+            font-weight: 600;
+        }
+        .important-note {
+            background: #fef5e8;
+            padding: 1rem;
+            border-radius: 12px;
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+        .btn-paypal {
+            background: #0070ba;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 40px;
+            text-decoration: none;
+            display: inline-block;
+            font-weight: 600;
+        }
+        .btn-paypal:hover {
+            background: #005c9e;
+        }
+        .small-link {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+        }
+        .back-home {
+            background: none;
+            border: 1px solid #e67e22;
+            color: #e67e22;
+            padding: 0.5rem 1rem;
+            border-radius: 40px;
+            text-decoration: none;
+        }
+        .back-home:hover {
+            background: #e67e22;
+            color: white;
+        }
+        @media (max-width: 768px) {
+            .donation-options {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <header class="site-header">
-    <div class="container">
-      <div class="header-content">
-        <h1 class="site-title">
-          <a href="index.html">Pineda Amador Family Ministry</a>
-        </h1>
-        <a href="index.html" class="btn btn-outline back-home">
-          ← Back to Home
-        </a>
-      </div>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero-donate" aria-labelledby="donate-title">
-      <div class="container narrow">
-        <h2 id="donate-title" class="section-title">Support the Ministry</h2>
-
-        <p class="lead">
-          Both my wife Anita and I work as English teachers, which helps sustain our family day-to-day. At the same time, we are deeply committed to serving the Lord full-time. I am currently raising support to pursue further studies in theology so I can serve the Kingdom with greater depth and faithfulness. We would greatly appreciate more help to continue this calling: Anita focuses especially on teaching and nurturing children in the faith, while I dedicate time to writing Gospel-centered content and building online resources to preach Christ across the world through the internet.
-        </p>
-
-        <p class="vision-text">
-          <strong>Long-term vision:</strong> I dream of helping establish a Christian university platform — beginning online — across Latin America. The goal is to offer high-quality theological training and professional degrees either free or at very low cost, especially for preachers and Christian workers. Following the example of the Apostle Paul, who made tents to support himself while preaching (Acts 18:3), we believe God equips His servants with both spiritual wisdom and practical professions. This way, ministers can preach boldly without financial pressure and serve their communities sustainably for many years to come.
-        </p>
-
-        <p class="lead support-note" style="margin-top: 2.5rem; font-weight: 500;">
-          Your gifts — whether through Western Union for direct family & ministry needs or PayPal for digital outreach — make this vision possible. Thank you for standing with us in prayer and generosity.
-        </p>
-
-        <div class="donation-options" role="region" aria-label="Donation methods">
-
-          <!-- Western Union Card -->
-          <article class="donation-card direct-support">
-            <h3>Direct Ministry & Family Support</h3>
-            <p class="method-type">via Western Union</p>
-
-            <div class="explanation">
-              <p>
-                We do not yet have a Nicaraguan bank account set up for easy international transfers. Because of this, <strong>Western Union</strong> remains the most direct, fast, and secure way to support our daily life and ministry work.
-              </p>
-              <p class="highlight-line">
-                <strong>This channel supports:</strong><br>
-                family living expenses • transportation • children's ministry materials • Anita’s work with kids • my ongoing theology studies
-              </p>
-            </div>
-
-            <div class="recipient-info">
-              <h4>Recipient Details</h4>
-              <dl>
-                <dt>Full name</dt>
-                <dd>Juan Pineda Canales</dd>
-                <dt>Phone</dt>
-                <dd>+505 5751 4440</dd>
-                <dt>Cédula / ID</dt>
-                <dd>321-220391-0001G</dd>
-                <dt>City</dt>
-                <dd>León, Nicaragua</dd>
-              </dl>
-            </div>
-
-            <p class="important-note">
-              <strong>After sending:</strong> please email the <strong>MTCN</strong> (Money Transfer Control Number) and amount to
-              <a href="mailto:JUANCANALES5019@GMAIL.COM">JUANCANALES5019@GMAIL.COM</a>
-            </p>
-          </article>
-
-          <!-- PayPal Card -->
-          <article class="donation-card online-infrastructure">
-            <h3>Online Ministry & Digital Outreach</h3>
-            <p class="method-type">via PayPal</p>
-
-            <div class="explanation">
-              <p>
-                This channel is used <strong>exclusively</strong> to strengthen our online presence and tools for preaching the Gospel:
-              </p>
-              <ul>
-                <li>Website domain & hosting renewal</li>
-                <li>Digital tools for content creation & teaching</li>
-                <li>Future improvements to reach more people online</li>
-                <li>Resources to support theology studies & writing ministry</li>
-              </ul>
-            </div>
-
-            <div class="paypal-action">
-              <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI"
-                 target="_blank" rel="noopener noreferrer"
-                 class="btn btn-paypal">
-                Donate via PayPal →
-              </a>
-              <p class="small-link">
-                or visit <a href="https://paypal.me/JOHNJPC" target="_blank" rel="noopener">paypal.me/JOHNJPC</a>
-              </p>
-            </div>
-          </article>
-
+    <header class="site-header" style="background: #0a2b2c; color: white; position: sticky; top: 0; z-index: 1000;">
+        <div class="container header-container" style="display: flex; justify-content: space-between; align-items: center; padding: 1rem 24px;">
+            <h1 class="site-title" style="margin: 0; font-size: 1.5rem;">
+                <a href="index.html" style="color: white; text-decoration: none;">Pineda Amador Family Ministry</a>
+            </h1>
+            <a href="index.html" class="back-home">← Back to Home</a>
         </div>
-      </div>
-    </section>
-  </main>
+    </header>
 
-  <footer class="site-footer">
-    <div class="container">
-      <h2 class="footer-title">Contact Us</h2>
-      <address>
-        <p><strong>Email:</strong> <a href="mailto:JUANCANALES5019@GMAIL.COM">JUANCANALES5019@GMAIL.COM</a></p>
-        <p><strong>Location:</strong> León, Nicaragua</p>
-        <p>Del Restaurante Los Pescaditos, 1 Cuadra al Oeste</p>
-      </address>
-      <p class="copyright">
-        © 2025–2026 Pineda Amador Family Ministry
-      </p>
-    </div>
-  </footer>
+    <main>
+        <section class="hero-donate" aria-labelledby="donate-title">
+            <div class="container narrow">
+                <h2 id="donate-title" class="section-title" style="text-align: center;">Support the Ministry</h2>
 
+                <p class="lead" style="font-size: 1.2rem; margin-bottom: 1.5rem;">
+                    Both my wife Anita and I work as English teachers, which helps sustain our family day-to-day. At the same time, we are deeply committed to serving the Lord full-time. I am currently raising support to pursue further studies in theology so I can serve the Kingdom with greater depth and faithfulness. We would greatly appreciate more help to continue this calling: Anita focuses especially on teaching and nurturing children in the faith, while I dedicate time to writing Gospel-centered content and building online resources to preach Christ across the world through the internet.
+                </p>
+
+                <p class="vision-text" style="background: #f1f8f7; padding: 1.5rem; border-radius: 20px;">
+                    <strong>Long-term vision:</strong> I dream of helping establish a Christian university platform — beginning online — across Latin America. The goal is to offer high-quality theological training and professional degrees either free or at very low cost, especially for preachers and Christian workers. Following the example of the Apostle Paul, who made tents to support himself while preaching (Acts 18:3), we believe God equips His servants with both spiritual wisdom and practical professions. This way, ministers can preach boldly without financial pressure and serve their communities sustainably for many years to come.
+                </p>
+
+                <p class="lead support-note" style="margin-top: 2rem; font-weight: 500;">
+                    Your gifts — whether through Western Union for direct family & ministry needs or PayPal for digital outreach — make this vision possible. Thank you for standing with us in prayer and generosity.
+                </p>
+
+                <div class="donation-options" role="region" aria-label="Donation methods">
+                    <!-- Western Union Card -->
+                    <article class="donation-card direct-support">
+                        <h3>Direct Ministry & Family Support</h3>
+                        <p class="method-type">via Western Union</p>
+
+                        <div class="explanation">
+                            <p>
+                                We do not yet have a Nicaraguan bank account set up for easy international transfers. Because of this, <strong>Western Union</strong> remains the most direct, fast, and secure way to support our daily life and ministry work.
+                            </p>
+                            <p class="highlight-line">
+                                <strong>This channel supports:</strong><br>
+                                family living expenses • transportation • children's ministry materials • Anita’s work with kids • my ongoing theology studies
+                            </p>
+                        </div>
+
+                        <div class="recipient-info">
+                            <h4>Recipient Details</h4>
+                            <dl>
+                                <dt>Full name</dt>
+                                <dd>Juan Pineda Canales</dd>
+                                <dt>Phone</dt>
+                                <dd>+505 5751 4440</dd>
+                                <dt>Cédula / ID</dt>
+                                <dd>321-220391-0001G</dd>
+                                <dt>City</dt>
+                                <dd>León, Nicaragua</dd>
+                            </dl>
+                        </div>
+
+                        <p class="important-note">
+                            <strong>After sending:</strong> please email the <strong>MTCN</strong> (Money Transfer Control Number) and amount to
+                            <a href="mailto:JUANCANALES5019@GMAIL.COM">JUANCANALES5019@GMAIL.COM</a>
+                        </p>
+                    </article>
+
+                    <!-- PayPal Card -->
+                    <article class="donation-card online-infrastructure">
+                        <h3>Online Ministry & Digital Outreach</h3>
+                        <p class="method-type">via PayPal</p>
+
+                        <div class="explanation">
+                            <p>
+                                This channel is used <strong>exclusively</strong> to strengthen our online presence and tools for preaching the Gospel:
+                            </p>
+                            <ul>
+                                <li>Website domain & hosting renewal</li>
+                                <li>Digital tools for content creation & teaching</li>
+                                <li>Future improvements to reach more people online</li>
+                                <li>Resources to support theology studies & writing ministry</li>
+                            </ul>
+                        </div>
+
+                        <div class="paypal-action">
+                            <a href="https://paypal.me/JOHNJPC?locale.x=es_XC&country.x=NI"
+                               target="_blank" rel="noopener noreferrer"
+                               class="btn-paypal">
+                                Donate via PayPal →
+                            </a>
+                            <p class="small-link">
+                                or visit <a href="https://paypal.me/JOHNJPC" target="_blank" rel="noopener">paypal.me/JOHNJPC</a>
+                            </p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer" style="background: #0a2b2c; color: #ddd; text-align: center; padding: 3rem 0 2rem;">
+        <div class="container">
+            <h2 style="color: white; margin-bottom: 1.5rem;">Contact Us</h2>
+            <address style="font-style: normal; margin-bottom: 1.5rem;">
+                <p><strong>Email:</strong> <a href="mailto:JUANCANALES5019@GMAIL.COM" style="color: #e67e22;">JUANCANALES5019@GMAIL.COM</a></p>
+                <p><strong>Location:</strong> León, Nicaragua</p>
+                <p>Del Restaurante Los Pescaditos, 1 Cuadra al Oeste</p>
+            </address>
+            <div class="footer-links" style="display: flex; justify-content: center; gap: 2rem; margin: 1.5rem 0;">
+                <a href="https://idclatam.org" target="_blank" rel="noopener noreferrer" style="color: #e67e22;">IDCLATAM.org</a>
+                <a href="https://biblefluent.org" target="_blank" rel="noopener noreferrer" style="color: #e67e22;">BibleFluent.org</a>
+            </div>
+            <p class="copyright">© 2025–2026 Pineda Amador Family Ministry</p>
+        </div>
+    </footer>
+<script src="donate.js"></script>
 </body>
 </html>
