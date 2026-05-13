@@ -1,144 +1,85 @@
-// ==================== UKBI DIGITAL LIBRARY ====================
-// Handles PDF preview rendering, category filtering, and search functionality
+// ==================== SERMONS PAGE - PINEDA AMADOR MINISTRY ====================
+// Smooth scrolling, active category highlighting, and mobile menu improvements
 
-// Configure PDF.js worker (required for rendering)
-pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.worker.min.js';
-
-// ==================== RENDER PDF PREVIEWS ====================
-// Renders first page of each PDF as thumbnail on canvas
-async function renderPdfPreviews() {
-    const canvases = document.querySelectorAll('.pdf-preview');
+document.addEventListener('DOMContentLoaded', function() {
     
-    for (const canvas of canvases) {
-        const pdfUrl = canvas.getAttribute('data-pdf');
-        if (!pdfUrl) continue;
-        
-        try {
-            // Load the PDF document
-            const loadingTask = pdfjsLib.getDocument(pdfUrl);
-            const pdf = await loadingTask.promise;
-            
-            // Get the first page
-            const page = await pdf.getPage(1);
-            
-            // Calculate scale to fit canvas width (max 120px width for thumbnail)
-            const viewport = page.getViewport({ scale: 1.0 });
-            const maxWidth = 120;
-            const scale = maxWidth / viewport.width;
-            const scaledViewport = page.getViewport({ scale });
-            
-            // Set canvas dimensions
-            canvas.width = scaledViewport.width;
-            canvas.height = scaledViewport.height;
-            
-            // Render PDF page into canvas context
-            const context = canvas.getContext('2d');
-            const renderContext = {
-                canvasContext: context,
-                viewport: scaledViewport
-            };
-            await page.render(renderContext).promise;
-            
-        } catch (error) {
-            console.error(`Error loading PDF ${pdfUrl}:`, error);
-            // Draw an error placeholder on canvas
-            const ctx = canvas.getContext('2d');
-            ctx.fillStyle = '#f0e9dc';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = '#e67e22';
-            ctx.font = '12px Inter, sans-serif';
-            ctx.fillText('Preview unavailable', 10, 40);
-        }
-    }
-}
-
-// ==================== FILTERING & SEARCH ====================
-let currentFilter = 'all';
-let currentSearchTerm = '';
-
-function filterAndSearchBooks() {
-    const bookCards = document.querySelectorAll('.book-card');
-    let visibleCount = 0;
+    // -------------------- 1. SMOOTH SCROLL FOR ALL ANCHOR LINKS --------------------
+    // Select all anchor links that point to an element on the same page
+    const anchorLinks = document.querySelectorAll('a[href^="#"]:not([href="#"])');
     
-    bookCards.forEach(card => {
-        const category = card.getAttribute('data-category');
-        const title = card.querySelector('h3')?.innerText.toLowerCase() || '';
-        const description = card.querySelector('p')?.innerText.toLowerCase() || '';
-        
-        // Check category filter
-        const matchesCategory = (currentFilter === 'all' || category === currentFilter);
-        
-        // Check search term
-        const matchesSearch = currentSearchTerm === '' || 
-                              title.includes(currentSearchTerm) || 
-                              description.includes(currentSearchTerm);
-        
-        if (matchesCategory && matchesSearch) {
-            card.style.display = '';
-            visibleCount++;
-        } else {
-            card.style.display = 'none';
-        }
-    });
-    
-    // Optional: show "no results" message if needed
-    let noResultsMsg = document.querySelector('.no-results-message');
-    if (visibleCount === 0) {
-        if (!noResultsMsg) {
-            noResultsMsg = document.createElement('div');
-            noResultsMsg.className = 'no-results-message';
-            noResultsMsg.textContent = 'No books match your search criteria. Try a different keyword or category.';
-            noResultsMsg.style.textAlign = 'center';
-            noResultsMsg.style.padding = '2rem';
-            noResultsMsg.style.color = '#666';
-            document.querySelector('.books-grid').after(noResultsMsg);
-        }
-        noResultsMsg.style.display = 'block';
-    } else if (noResultsMsg) {
-        noResultsMsg.style.display = 'none';
-    }
-}
-
-// ==================== EVENT LISTENERS ====================
-document.addEventListener('DOMContentLoaded', async () => {
-    // Render PDF previews first
-    await renderPdfPreviews();
-    
-    // Set up filter buttons
-    const filterBtns = document.querySelectorAll('.filter-btn');
-    filterBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            // Update active state
-            filterBtns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
+    anchorLinks.forEach(link => {
+        link.addEventListener('click', function(e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#' || targetId === '') return;
             
-            // Update current filter
-            currentFilter = btn.getAttribute('data-filter');
-            filterAndSearchBooks();
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+                // Optional: update URL without reload
+                history.pushState(null, null, targetId);
+            }
         });
     });
     
-    // Set up search input
-    const searchInput = document.getElementById('librarySearch');
-    if (searchInput) {
-        let debounceTimer;
-        searchInput.addEventListener('input', (e) => {
-            clearTimeout(debounceTimer);
-            debounceTimer = setTimeout(() => {
-                currentSearchTerm = e.target.value.trim().toLowerCase();
-                filterAndSearchBooks();
-            }, 300);
+    // -------------------- 2. ACTIVE CATEGORY HIGHLIGHT ON SCROLL --------------------
+    // Highlight the jump link corresponding to the visible category section
+    const categories = document.querySelectorAll('.category-archive-card');
+    const jumpLinks = document.querySelectorAll('.jump-link');
+    
+    function updateActiveCategory() {
+        let currentCategory = '';
+        const scrollPosition = window.scrollY + 150; // offset for sticky header
+        
+        categories.forEach(category => {
+            const sectionTop = category.offsetTop;
+            const sectionBottom = sectionTop + category.offsetHeight;
+            if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                currentCategory = '#' + category.getAttribute('id');
+            }
+        });
+        
+        jumpLinks.forEach(link => {
+            link.classList.remove('active');
+            if (link.getAttribute('href') === currentCategory) {
+                link.classList.add('active');
+            }
         });
     }
     
-    // Initial filter
-    filterAndSearchBooks();
-});
-
-// ==================== FALLBACK FOR MISSING PDF WORKER ====================
-// If the CDN worker fails, try to use a local fallback (optional)
-window.addEventListener('error', (e) => {
-    if (e.target.tagName === 'SCRIPT' && e.target.src?.includes('pdf.worker')) {
-        console.warn('PDF worker failed to load, thumbnails may not render.');
+    // Add CSS for active class (optional, but we define it here or let CSS handle)
+    // Add style dynamically if not present
+    if (!document.querySelector('#active-style')) {
+        const style = document.createElement('style');
+        style.id = 'active-style';
+        style.textContent = `
+            .jump-link.active {
+                background: #e67e22;
+                color: white;
+            }
+        `;
+        document.head.appendChild(style);
     }
+    
+    window.addEventListener('scroll', updateActiveCategory);
+    window.addEventListener('load', updateActiveCategory);
+    
+    // -------------------- 3. HANDLE EXTERNAL LINKS SECURITY --------------------
+    // All external links should open in new tab with rel="noopener"
+    const externalLinks = document.querySelectorAll('a[href^="http"]:not([href*="pinedaamador.org"])');
+    externalLinks.forEach(link => {
+        link.setAttribute('target', '_blank');
+        link.setAttribute('rel', 'noopener noreferrer');
+    });
+    
+    // -------------------- 4. MOBILE MENU IMPROVEMENT (for category jump bar on mobile) --------------------
+    // No complex menu, but we can ensure the jump bar is usable on small screens
+    // Already handled by CSS, but we can add a smooth scroll when clicking jump links on mobile
+    // (already covered by smooth scroll)
+    
+    // -------------------- 5. ADD SIMPLE CONSOLE LOG FOR DEBUGGING --------------------
+    console.log('Sermons page loaded — enjoy the messages!');
 });
