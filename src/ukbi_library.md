@@ -62,7 +62,7 @@
         <div class="library-grid-container">
             <div class="books-grid" id="booksGrid">
                 
-                <!-- OLD TESTAMENT BOOKS -->
+                <!-- OLD TESTAMENT BOOKS 
                 <div class="book-card" data-category="old-testament">
                     <div class="book-cover">
                         <span class="category-tag">Old Testament</span>
